@@ -66,6 +66,9 @@ Editing Markdown Document in Prose            |  Post as it Appears on Website
 :-------------------------:|:-------------------------:
 ![](https://cdn-images-1.medium.com/max/1200/1*d8i935OAi_-8t1a6ybI7Tw.png)  |  ![](https://cdn-images-1.medium.com/max/1200/1*MIwLnnGj4MucXQpAqqIaaw.png)
 
+
+![](https://cdn-images-1.medium.com/max/1200/1*d8i935OAi_-8t1a6ybI7Tw.png) ![](https://cdn-images-1.medium.com/max/1200/1*MIwLnnGj4MucXQpAqqIaaw.png)
+
 If you already have posts on Medium, you can convert these to Markdown using this [Chrome extension](https://chrome.google.com/webstore/detail/convert-medium-posts-to-m/aelnflnmpbjgipamcogpdoppjbebnjea?hl=en) or this [command line tool](https://www.npmjs.com/package/markdown-to-medium). The conversion isn’t perfect, but with a few edits, you’ll be able to quickly export your Medium work to your blog. I plan on writing an article about some tricks that I’ve used to make the process easier so stay tuned.
 
 * * *
