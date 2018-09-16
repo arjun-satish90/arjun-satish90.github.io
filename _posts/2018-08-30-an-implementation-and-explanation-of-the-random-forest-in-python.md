@@ -517,7 +517,7 @@ open-source community for studying machine learning. I would like to thank
 enlight and also [repl.it ](http://repl.it/)for hosting the code in the article.
 
 
-<div class="video-container">
+<div class="code-container">
     <iframe src="https://repl.it/@WillKoehrsen/Random-Forest-Tutorial?lite=true">
     </iframe>
 </div>
