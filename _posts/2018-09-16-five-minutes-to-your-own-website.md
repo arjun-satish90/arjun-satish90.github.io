@@ -61,8 +61,10 @@ All blog posts in Jekyll are written in [Markdown](https://en.wikipedia.org/wiki
 
 The posts for your website are located in the `_posts/` folder and as you edit and save the files in Prose, you’ll be able to see them appear on your blog. Follow the naming convention: `date-title.md` and your post will automatically appear correctly named and dated on your site.
 
-![](https://cdn-images-1.medium.com/max/1200/1*d8i935OAi_-8t1a6ybI7Tw.png)![](https://cdn-images-1.medium.com/max/1200/1*MIwLnnGj4MucXQpAqqIaaw.png)
-*Editing Markdown document in Prose (left) and post as is appears on website (right)*
+
+Editing Markdown Document in Prose            |  Post as it Appears on Website
+:-------------------------:|:-------------------------:
+![](https://cdn-images-1.medium.com/max/1200/1*d8i935OAi_-8t1a6ybI7Tw.png)  |  ![](https://cdn-images-1.medium.com/max/1200/1*MIwLnnGj4MucXQpAqqIaaw.png)
 
 If you already have posts on Medium, you can convert these to Markdown using this [Chrome extension](https://chrome.google.com/webstore/detail/convert-medium-posts-to-m/aelnflnmpbjgipamcogpdoppjbebnjea?hl=en) or this [command line tool](https://www.npmjs.com/package/markdown-to-medium). The conversion isn’t perfect, but with a few edits, you’ll be able to quickly export your Medium work to your blog. I plan on writing an article about some tricks that I’ve used to make the process easier so stay tuned.
 
