@@ -14,7 +14,7 @@ tags:
 
 ## Useful tips for writing about your data science projects
 
-<!--more-->
+
 
 Writing is something that everyone wants to do more of, yet we often find it
 difficult to get started. [We know that
@@ -44,7 +44,7 @@ ways in which I’ve implemented them to improve my writing. Over the course of
 mistakes, and, rather than making these same errors yourself, you can learn from
 my experiences.
 
-
+<!--more-->
 
 *****
 
