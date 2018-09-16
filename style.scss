@@ -129,6 +129,7 @@ img {
 
 # Captions for images
 img + em { 
+	margin: 6px;
     display: block; 
     text-align: center;
     font-size: .8rem;
