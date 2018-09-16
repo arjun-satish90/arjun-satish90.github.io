@@ -126,10 +126,13 @@ rides based on the fare. For the coordinates, we can look at the distribution
 and exclude values that fall well outside the norm. Once we’ve identified
 outliers, we can remove them using code like the following:
 
-    data = data.loc[data['pickup_latitude'].between(40, 42)]
-    data = data.loc[data['pickup_longitude'].between(-75, -72)]
-    data = data.loc[data['dropoff_latitude'].between(40, 42)]
-    data = data.loc[data['dropoff_longitude'].between(-75, -72)]
+
+```python
+data = data.loc[data['pickup_latitude'].between(40, 42)]
+data = data.loc[data['pickup_longitude'].between(-75, -72)]
+data = data.loc[data['dropoff_latitude'].between(40, 42)]
+data = data.loc[data['dropoff_longitude'].between(-75, -72)]
+```
 
 Once we clean the data, we can get to the fun part: visualization. Below is a
 plot of the pickup and dropoff locations on top of NYC colored by the binned
