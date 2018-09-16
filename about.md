@@ -21,17 +21,20 @@ Follow me at a variety of places around the web:
 
 *****
 
+### Contact me
+
+If you have a data science question or would like to dicuss anything data science related I'm responsive on Twitter or directly at [wjk68@case.edu](mailto:wjk68@case.edu).
+
+*****
+
 ## Live Code
 
 Most about pages are pretty dull. To mix things up, I've included a live Python editor where you can edit and run code. Thanks to the incredible [repl.it](https://repl.it/) for making this possible.
 
-<div class="video-container">
+<div class="code-container">
     <iframe src="https://repl.it/@WillKoehrsen/basicpython?lite=true">
     </iframe>
 </div>
 
-*****
 
-### Contact me
 
-If you have a data science question or would like to dicuss anything data science related I'm responsive on Twitter or directly at [wjk68@case.edu](mailto:wjk68@case.edu).
