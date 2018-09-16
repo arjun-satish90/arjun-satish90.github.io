@@ -133,6 +133,22 @@ img + em {
     font-size: .8rem;
     color: light-grey;
  }
+ 
+ # Container for holding code
+ iframe {
+	height: 100%;
+    width: 100%;
+    frameborder: 5px;
+ }
+ 
+ .code-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 90px;
+    margin-left: -90px;
+    width: 900px;
+    height: 600px;
+ }
 
 // Fixes images in popup boxes from Google Translate
 .gmnoprint img {
@@ -165,21 +181,6 @@ img + em {
 .clearfix:after {
     clear: both;
 }
-
-iframe {
-	height: 100%;
-    width: 100%;
-    frameborder: 5px;
- }
- 
- .video-container {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-right: 90px;
-    margin-left: -90px;
-    width: 900px;
-    height: 600px;
- }
 
 /*********************/
 /* LAYOUT / SECTIONS */
