@@ -128,15 +128,18 @@ img {
 }
 
 // Captions for images
-img + em { 
-	margin: 6px;
-    display: block; 
+img + em {
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    display: block;
     text-align: center;
-    font-size: .8rem;
-    color: light-grey;
- }
+    font-size: 14px;
+    color: black;
+}
  
- // Container for holding code
+ // Container for holding live code
  iframe {
 	height: 100%;
     width: 100%;
