@@ -12,7 +12,7 @@ title: 'How to Put Fully Interactive, Runnable Code in a Medium Post'
 3.  Copy and paste the url for your repl into a Medium post.
 4.  Publish the post to make the code interactive.
 
-<div class="video-container">
+<div class="code-container">
     <iframe src="https://repl.it/@WillKoehrsen/basicpython?lite=true">
     </iframe>
 </div>
