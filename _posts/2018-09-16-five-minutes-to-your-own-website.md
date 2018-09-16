@@ -15,6 +15,8 @@ While Medium is a great option to [start blogging](https://medium.com/p/50715f37
 
 In this post, we’ll see how to use the Jekyll site generator and GitHub Pages to build and publish a simple blog with no coding required. If you want an idea of the end product, you can take a look at [my (work in progress) site](https://willk.online/).
 
+<!--more-->
+
 * * *
 
 ### Jekyll and GitHub Pages
