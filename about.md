@@ -7,6 +7,17 @@ published: true
 
 Data scientist at [Feature Labs](https://www.featurelabs.com/) in Boston, MA working on [automated feature engineering](https://towardsdatascience.com/automated-feature-engineering-in-python-99baf11cc219). Previously a member of the [EDIFES research team](https://arpa-e.energy.gov/?q=slick-sheet-project/virtual-building-energy-audits) at Case Western Reserve University developing a data science platform for virtual energy audits. Avid data science advocate and communicator on [Towards Data Science](http://medium.com/@williamkoehrsen/)
 
+
+    from sklearn.ensemble import RandomForestClassifier
+
+    # Create the model with 100 trees
+    model = RandomForestClassifier(n_estimators=100, 
+                                   bootstrap = True,
+                                   max_features = 'sqrt')
+    # Fit on training data
+    model.fit(train, train_labels)
+    
+    
 *****
 
 ### More Information
@@ -35,6 +46,3 @@ Most about pages are pretty dull. To mix things up, I've included a live Python 
     <iframe src="https://repl.it/@WillKoehrsen/basicpython?lite=true">
     </iframe>
 </div>
-
-
-
