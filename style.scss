@@ -197,7 +197,7 @@ img + em {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 4px double #222;
+  border-bottom: 4px groove #222;
 
   @include mobile {
     text-align: center;
