@@ -71,6 +71,8 @@ In this project, I use the parallel computing library Dask in order to paralleli
 ## Article
 * [Parallelizing Feature Engineering with Dask](https://towardsdatascience.com/parallelizing-feature-engineering-with-dask-3db88aec33b7)
 
+<!--more-->
+
 *****
 
 ## NYC Taxi Fare Prediction
