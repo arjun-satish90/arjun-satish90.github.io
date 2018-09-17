@@ -18,6 +18,8 @@ The final result is a complete decision tree as an image.
 ![](https://cdn-images-1.medium.com/max/2000/1*IPLwmH-TJRhEWXW7uaetMw.png)
 *Decision Tree for Iris Dataset*
 
+<!--more-->
+
 ### Explanation of code
 
 1.  **Create a model train and extract:** we could use a single decision tree, but since I often employ the [random forest](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) for modeling it’s used in this example. (The trees will be slightly different from one another!).
