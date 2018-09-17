@@ -1,8 +1,9 @@
-* * *
-
+---
+published: false
+title: Untitled
+---
 ![](https://cdn-images-1.medium.com/max/2000/1*ble-iLK9NDmCeBha0wuSfg.jpeg)
-
-# Parallelizing Feature Engineering with Dask
+*(Source)[https://www.pexels.com/photo/timelapse-photography-of-road-with-white-and-red-lights-169976/]
 
 ## How to scale Featuretools using parallel processing
 
@@ -12,7 +13,11 @@ Often, as we’ll see, the bottleneck is that we aren’t taking full advantage 
 
 In this article, we’ll see how to refactor our automated feature engineering code to run in parallel on all our laptop’s cores, in the process reducing computation time by over 8x. We’ll make use of two open-source libraries — [Featuretools](https://www.featuretools.com/) for [automated feature engineering](https://medium.com/@williamkoehrsen/why-automated-feature-engineering-will-change-the-way-you-do-machine-learning-5c15bf188b96) and [Dask for parallel processing](https://dask.pydata.org/) — and solve a problem with a real-world dataset.
 
-![](https://cdn-images-1.medium.com/max/1600/1*ER9NQ7QQ36WNgEoHSaDduQ.png)![](https://cdn-images-1.medium.com/max/800/1*KUDZFIVF_CPO3IC4cvM2Vg.png)We’ll combine two important technologies: automated feature engineering in Featuretools and parallel computation in Dask.
+Featuretools | Dask
+:-:|:-:
+![](https://cdn-images-1.medium.com/max/1600/1*ER9NQ7QQ36WNgEoHSaDduQ.png)| ![](https://cdn-images-1.medium.com/max/800/1*KUDZFIVF_CPO3IC4cvM2Vg.png)
+
+<center>We’ll combine two important technologies: automated feature engineering in Featuretools and parallel computation in Dask.</center>
 
 Our exact solution is specific for this problem, but the general approach we develop can be utilized to scale your own computations to larger datasets.
 
@@ -32,7 +37,8 @@ Given that our EC2 instance — and even our laptop — has 8 cores, to 
 
 The approach is to break one large problem up into many smaller ones and then use Dask to run multiple small problems at a time — each one on a different core. The important point here is that we make each problem — task — **independent** of the others so they can run simulataneously. Because we are making features for each client in the dataset, each task is to make a feature matrix for a subset of clients.
 
-![](https://cdn-images-1.medium.com/max/2000/1*7sAUlWHjGbayP6UzMF6-YQ.png)When one problem is too hard, make lots of little problems.
+![](https://cdn-images-1.medium.com/max/2000/1*7sAUlWHjGbayP6UzMF6-YQ.png)
+*When one problem is too hard, make lots of little problems.*
 
 Our approach is outlined below:
 
@@ -50,7 +56,8 @@ Our first step is to create small partitions of the original dataset, each one c
 
 This operation is done by taking a list of all clients, breaking it into 104 sub-lists, and then iterating through these sub-lists, each time subsetting the data to only include clients from the sub-list and saving the resulting data to disk. The basic pseudo code of this process is:
 
-<iframe width="700" height="250" src="/media/2b3bf30d4e0986a75724698e297afd56?postId=3db88aec33b7" data-media-id="2b3bf30d4e0986a75724698e297afd56" allowfullscreen="" frameborder="0"></iframe>
+<script src="https://gist.github.com/WillKoehrsen/f4177739841867982ef73320388b084e.js" charset="utf-8"></script>
+<center>Pseudo Code for Making Partitions</center>
 
 104 partitions was selected based on trial and error and 3 general guidelines:
 
@@ -62,7 +69,8 @@ This operation is done by taking a list of all clients, breaking it into 104 sub
 
 Saving all 104 partitions to disk took about 30 minutes, but this is a process that only must be done once.
 
-![](https://cdn-images-1.medium.com/max/1600/1*pz8juBIZFwobZx9Sjbgc3A.png)Each partition contains all the data needed to make a feature matrix for a subset of clients.
+![](https://cdn-images-1.medium.com/max/1600/1*pz8juBIZFwobZx9Sjbgc3A.png)
+*Each partition contains all the data needed to make a feature matrix for a subset of clients.*
 
 #### Entity Sets from Partitions
 
@@ -70,7 +78,8 @@ An Entity Set in Featuretools is a useful data structure because it holds multip
 
 The pseudo code for this step is:
 
-<iframe width="700" height="250" src="/media/a57a2830de10fe2fb336ed9b2ceb1b0a?postId=3db88aec33b7" data-media-id="a57a2830de10fe2fb336ed9b2ceb1b0a" allowfullscreen="" frameborder="0"></iframe>
+<script src="https://gist.github.com/WillKoehrsen/a86e3e7e367506114a503b7db4dd0639.js" charset="utf-8"></script>
+<center>Pseudo Code for Making EntitySet from a Partition</center>
 
 Notice that this function _returns_ the `EntitySet` rather than saving it as we did with the partitions of data. Saving the _raw data_ is a better option for this problem because we might want to modify the `EntitySets` — say by adding interesting values or domain knowledge features — while the raw data is never altered. The `EntitySets` are generated on the fly and then passed to the next stage: calculating the feature matrix.
 
@@ -80,7 +89,8 @@ The function `feature_matrix_from_entityset` does exactly what the name suggests
 
 Here’s the entire function (we pass in a dictionary with the `EntitySet` and the partition number so we can save the feature matrix with a unique name):
 
-<iframe width="700" height="250" src="/media/b30b9271303b3f2d787600f679975fcc?postId=3db88aec33b7" data-media-id="b30b9271303b3f2d787600f679975fcc" allowfullscreen="" frameborder="0"></iframe>Creating a feature matrix from an EntitySet and saving it to disk.
+<script src="https://gist.github.com/WillKoehrsen/c9d3fc6b0713358632673d418a661a13.js" charset="utf-8"></script>
+<center> Code for creating a feature matrix from an EntitySet and saving it to disk.</center>
 
 The `[chunk_size](https://docs.featuretools.com/guides/performance.html#adjust-chunk-size-when-calculating-feature-matrix)` is the only tricky part of this call: this is used to break the feature matrix calculation into smaller parts, but since we already partitioned the data, this is no longer necessary. As long as the entire EntitySet can fit in memory, then I found it’s more time efficient to calculate all of the rows at once by setting the `chunk_size` equal to the number of observations.
 
@@ -98,49 +108,52 @@ Since calculating a feature matrix is compute-intensive and can be done independ
 
 If we start Dask using processes — as in the following code — we get 8 workers, one for each core, with each worker allotted 2 GB of memory (16 GB total / 8 workers, this will vary depending on your laptop).
 
-<pre name="fbdb" id="fbdb" class="graf graf--pre graf-after--p">from dask.distributed import Client</pre>
-
-<pre name="1aad" id="1aad" class="graf graf--pre graf-after--pre"># Use all 8 cores
-client = Client(processes = True)</pre>
+    from dask.distributed import Client
+    # Use all 8 cores
+    client = Client(processes = True)
 
 To check that everything worked out, we can navigate to localhost:8787 where Dask has set up a Bokeh dashboard for us. On the Workers tab, we see 8 workers each with 2 GB of memory:
 
-![](https://cdn-images-1.medium.com/max/1600/1*mT84K5oWE21W3C1XLiuFBQ.png)Workers created by Dask with processes = True (run on a MacBook with 8 cores and 16 GB of RAM).
+![](https://cdn-images-1.medium.com/max/1600/1*mT84K5oWE21W3C1XLiuFBQ.png)
+*Workers created by Dask with processes = True (run on a MacBook with 8 cores and 16 GB of RAM).*
 
 At the moment, all 8 workers are idle because we haven’t given them anything to do. The next step is to create a “Dask bag” which is basically a list of tasks for Dask to allocate to workers. We make the “bag” using the `db.from_sequence` method and the list of partition paths.
 
-<pre name="8db7" id="8db7" class="graf graf--pre graf-after--p">import dask.bag as db
-# Create list of partitions
-paths = ['../input/partitions/p%d' %  i for i in range(1, 105)]</pre>
-
-<pre name="96b9" id="96b9" class="graf graf--pre graf-after--pre"># Create dask bag
-b = db.from_sequence(paths)</pre>
+    import dask.bag as db
+    # Create list of partitions
+    paths = ['../input/partitions/p%d' %  i for i in range(1, 105)]
+    # Create dask bag
+    b = db.from_sequence(paths)
 
 Then, we `map` computation tasks onto the bag. To `map` means to take a function and a list of inputs and apply the function to each element in the list. Since we first need to make an`EntitySet` from each partition, we map the associated function to the “bag”:
 
-<pre name="579d" id="579d" class="graf graf--pre graf-after--p"># Map entityset function
-b = b.map(entityset_from_partition)</pre>
+    # Map entityset function
+    b = b.map(entityset_from_partition)
 
 Next we doing another mapping, this time to make the feature matrixes:
 
-<pre name="62b1" id="62b1" class="graf graf--pre graf-after--p"># Map feature matrix function
-b = b.map(feature_matrix_from_entityset, 
-          feature_names = feature_defs)</pre>
+
+    # Map feature matrix function
+    b = b.map(feature_matrix_from_entityset, 
+              feature_names = feature_defs)
 
 This code will take the output of the first `map` — the `EntitySet` — and pass it to the second `map.` These steps don’t actually run the computations, but rather make a list of tasks that Dask will then allocate to workers. To run the tasks and make the feature matrices we call:
 
-<pre name="2260" id="2260" class="graf graf--pre graf-after--p"># Run the tasks
-b.compute()</pre>
+    # Run the tasks
+    b.compute()
 
 Dask automatically allocates tasks to workers based on the task graph (a [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)) constructed from the mappings. We can view the task graph and status on the Bokeh dashboard as the computation occurs.
 
-![](https://cdn-images-1.medium.com/max/1600/1*bzzlUUg64Fh0MaLgHBHiHg.png)Dask task graph midway through the computation process.
+![](https://cdn-images-1.medium.com/max/1600/1*bzzlUUg64Fh0MaLgHBHiHg.png)
+*Dask task graph midway through the computation process.*
 
 The set of blocks on the left represent the `entity_set_from_partition` function calls and the blocks on the right are `feature_matrix_from_entityset.` From this graph, we can there is a dependency between the two functions but **not** between feature matrix calculations for each partition.
 
 There are a number of other visualizations on the Bokeh dashboard including a task stream (left below) and a profile of operations (right below):
 
-![](https://cdn-images-1.medium.com/max/1200/1*xPCycSirWu3Ce-OlwxN0HA.png)![](https://cdn-images-1.medium.com/max/1200/1*yh3z4ZlG1a3D-ggwTwoC0w.png)Task Stream (left) and Profile (right) of ongoing computation.
+Task Stream | Profile 
+:-: | :-:
+![](https://cdn-images-1.medium.com/max/1200/1*xPCycSirWu3Ce-OlwxN0HA.png) | ![](https://cdn-images-1.medium.com/max/1200/1*yh3z4ZlG1a3D-ggwTwoC0w.png)
 
 From the task stream, we can see that all eight workers are in use at once with a total of 208 tasks to complete. The profile tells us that the longest operation is calculating the feature matrix for each partition.
 
@@ -152,11 +165,13 @@ On my MacBook, it took 6200 seconds (1.75 hours) to build and save all 104 featu
 
 Once we have the individual feature matrices, we can directly use them for modeling if we are using an algorithm that allows [on-line — also called incremental — learning](https://blog.bigml.com/2013/03/12/machine-learning-from-streaming-data-two-problems-two-solutions-two-concerns-and-two-lessons/). Another option is to create one feature matrix which can be done in pure Python using Pandas:
 
-<iframe width="700" height="250" src="/media/78c4977ad2cc31ad5c7990d440856c3b?postId=3db88aec33b7" data-media-id="78c4977ad2cc31ad5c7990d440856c3b" allowfullscreen="" frameborder="0"></iframe>Code to join together feature matrices.
+<script src="https://gist.github.com/WillKoehrsen/af4a39e1b32ba404fcaa6f3fae55118d.js" charset="utf-8"></script>
+<center>Code to join together feature matrices.</center>
 
 The single feature matrix has 350,000 rows and 1,820 columns, the same shape as when I first made it using a single core.
 
-![](https://cdn-images-1.medium.com/max/1600/1*wnBQsXIhW27kFZn4ig6Hvg.png)Subset of complete feature matrix.
+![](https://cdn-images-1.medium.com/max/1600/1*wnBQsXIhW27kFZn4ig6Hvg.png)
+*Subset of complete feature matrix.*
 
 * * *
 
@@ -175,3 +190,7 @@ Now we can not only take advantage of the speed and modeling performance of auto
 * * *
 
 If building meaningful, high-performance predictive models is something you care about, then get in touch with us at [Feature Labs](https://www.featurelabs.com/contact/). While this project was completed with the open-source Featuretools, the [commercial product](https://www.featurelabs.com/product) offers additional tools and support for creating machine learning solutions.
+
+***
+
+As always, I welcome feedback and constructive criticism. I can be reached on Twitter or through my personal website [willk.online](https://willk.online)
