@@ -7,7 +7,7 @@ categories:
   - Dask
 ---
 ![](https://cdn-images-1.medium.com/max/2000/1*ble-iLK9NDmCeBha0wuSfg.jpeg)
-*(Source)[https://www.pexels.com/photo/timelapse-photography-of-road-with-white-and-red-lights-169976/]
+*(Source)[https://www.pexels.com/photo/timelapse-photography-of-road-with-white-and-red-lights-169976/]*
 
 ## How to scale Featuretools using parallel processing
 
