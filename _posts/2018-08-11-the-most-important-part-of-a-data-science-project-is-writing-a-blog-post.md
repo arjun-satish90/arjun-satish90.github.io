@@ -1,6 +1,9 @@
 ---
 published: false
 title: "The Most Important Part of a Data Science Project is Writing a Blog\_Post"
+categories:
+  - writing
+  - data science
 ---
 
 ![](https://cdn-images-1.medium.com/max/2000/1*pf5z3J7L7QX3it_LFVf4DQ.jpeg)
