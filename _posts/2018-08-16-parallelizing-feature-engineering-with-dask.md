@@ -25,6 +25,8 @@ Featuretools | Dask
 
 Our exact solution is specific for this problem, but the general approach we develop can be utilized to scale your own computations to larger datasets.
 
+<!--more-->
+
 > Although here we’ll stick to using one computer and **_multiple cores_**, in the future, we’ll use this same method to run computations on **_multiple machines_.**
 
 The complete code implementation is available in a [Jupyter Notebook](https://github.com/Featuretools/Automated-Manual-Comparison/blob/master/Loan%20Repayment/notebooks/Featuretools%20on%20Dask.ipynb) on GitHub. If you aren’t yet familiar with Featuretools, check out [the documentation](https://github.com/Featuretools/featuretools) or [this article](https://towardsdatascience.com/automated-feature-engineering-in-python-99baf11cc219). Here we’ll focus mainly on using Featuretools with Dask and skip over some of the automated feature engineering details.
