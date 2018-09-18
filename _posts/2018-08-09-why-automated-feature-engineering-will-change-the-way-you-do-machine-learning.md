@@ -18,14 +18,14 @@ Recent years have seen progress in [automating model selection](https://epistasi
 
 Automated feature engineering is a relatively new technique, but, after using it to solve a number of data science problems using real-world data sets, I’m convinced it should be a _standard_ part of any machine learning workflow. Here we’ll take a look at the results and conclusions from two of these projects with the full [code available as Jupyter Notebooks on GitHub](https://github.com/Featuretools/Automated-Manual-Comparison).
 
+<!--more-->
+
 Each project highlights some of the benefits of automated feature engineering:
 
 *   **Loan Repayment Prediction:** automated feature engineering can reduce machine learning development time by 10x compared to manual feature engineering while delivering better modeling performance. ([Notebooks](https://github.com/Featuretools/Automated-Manual-Comparison/tree/master/Loan%20Repayment))
 *   **Retail Spending Prediction:** automated feature engineering creates meaningful features and prevents data leakage by internally handling time-series filters, enabling successful model deployment. ([Notebooks](https://github.com/Featuretools/Automated-Manual-Comparison/tree/master/Retail%20Spending))
 
 Feel free to dig into the code and try out Featuretools! (Full disclosure: I work for [Feature Labs](https://www.featurelabs.com/), the company developing the library. These projects were completed with the free, open-source version of Featuretools).
-
-<!--more-->
 
 * * *
 
