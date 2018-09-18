@@ -152,6 +152,10 @@ img + em {
     font-style: italic;
  }
  
+ .category-head {
+ 	text-transform: capitalize;
+}
+ 
  
  // Container for holding live code
  iframe {
