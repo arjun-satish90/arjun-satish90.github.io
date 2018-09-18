@@ -1,6 +1,9 @@
 ---
 published: true
 title: 'How to Put Fully Interactive, Runnable Code in a Medium Post'
+categories:
+  - useful tips
+  - Medium
 ---
 ![](https://cdn-images-1.medium.com/max/2000/1*JTdMap3RCYkwPNxtoF8u-w.jpeg)
 *([Source](https://www.pexels.com/photo/blur-close-up-code-computer-546819/))*
