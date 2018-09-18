@@ -121,7 +121,8 @@ Furthermore, the Featuretools code I wrote for this first project could be appli
 
 For the second dataset, a [record of online time-stamped customer transactions](https://archive.ics.uci.edu/ml/datasets/online+retail#), the prediction problem is to classify customers into two segments, those who will spend more than $500 in the next month and those who won’t. However, instead of using a single month for all the labels, each customer is a label _multiple times_. We can use their spending in May as a label, then in June, and so on.
 
-![](https://cdn-images-1.medium.com/max/1600/1*wVzNbqJ5JHSqjf8x0uCzxw.png)Each customer is used as a training example multiple times
+![](https://cdn-images-1.medium.com/max/1600/1*wVzNbqJ5JHSqjf8x0uCzxw.png)
+*Each customer is used as a training example multiple times*
 
 Using each customer multiple times as an observation brings up difficulties for creating training data: when making features for a customer for a given month, we can’t use any information from months in the future, _even though we have access to this data_. In a deployment, we’ll _never have future data_ and therefore can’t use it for training a model. Companies routinely struggle with this issue and often deploy a model that does much worse in the real world than in development because it was trained using invalid data.
 
@@ -135,6 +136,7 @@ The features for a customer in a given month are built using data filtered to be
                                       agg_primitives = agg_primitives,
                                       trans_primitives = trans_primitives,
                                       cutoff_time = cutoff_times)
+                                      
 <center>Deep Feature Synthesis with Cutoff Times Code</center>
 
 The result of running Deep Feature Synthesis is a table of features, one for each customer _for each month_. We can use these features to train a model with our labels and then make predictions for any month. Moreover, we can rest assured that the features in our model do not use future information, which would result in an unfair advantage and yield misleading training scores.
