@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "The Most Important Part of a Data Science Project is Writing a Blog\_Post"
 categories:
   - writing
@@ -21,6 +21,8 @@ There are three benefits to writing even a simple blog post about your work:
 Writing is one of those activities — exercise and education also come to mind — that might have no _payout in the short term_ but almost _unlimited potential rewards in the long term_. Personally, I make $0 from the 10,000 daily views my blog posts receive, each of which takes 3–15 hours to write. Yet, I also wouldn’t have a full-time data science job were it not for my articles.
 
 > Moreover, I know the quality of my data science work is much higher, both because I intend to write about it, and because I used the previous feedback I’ve received, making the long term return from writing decidedly positive.
+
+<!--more-->
 
 * * *
 
