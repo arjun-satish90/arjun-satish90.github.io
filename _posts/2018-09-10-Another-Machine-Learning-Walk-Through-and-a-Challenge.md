@@ -1,6 +1,10 @@
 ---
 published: true
 title: Another Machine Learning Walkthrough and a Challenge
+categories:
+  - machine learning
+  - Python
+  - project
 ---
 ![](https://cdn-images-1.medium.com/max/1000/1*8ayKCPB_lYTNNxMLE2fkgA.jpeg)
 
