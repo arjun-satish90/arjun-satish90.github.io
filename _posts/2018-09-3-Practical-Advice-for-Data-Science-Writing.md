@@ -3,8 +3,8 @@ published: true
 title: Practical Advice for Data Science Writing
 date: 'September 3, 2018'
 categories:
-  - blog
-  - travel
+  - writing
+  - data science
 tags:
   - hot
   - summer
@@ -13,8 +13,6 @@ tags:
 *([Source](https://www.pexels.com/photo/adult-book-business-cactus-297755/))*
 
 ## Useful tips for writing about your data science projects
-
-
 
 Writing is something that everyone wants to do more of, yet we often find it
 difficult to get started. [We know that
