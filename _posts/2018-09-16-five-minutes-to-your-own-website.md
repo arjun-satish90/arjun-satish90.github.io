@@ -1,9 +1,10 @@
 ---
 published: true
 title: Five Minutes to Your Own Website
+categories:
+  - writing
+  - web development
 ---
-* * *
-
 ![](https://cdn-images-1.medium.com/max/2000/1*iPY8nENYXcSoH-UmNP8_iw.jpeg)
 *([Source](https://www.pexels.com/photo/landscape-blue-cloud-109678/))*
 
