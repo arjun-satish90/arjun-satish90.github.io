@@ -1,8 +1,9 @@
-* * *
+---
+published: false
+title: "The Most Important Part of a Data Science Project is Writing a Blog\_Post"
+---
 
 ![](https://cdn-images-1.medium.com/max/2000/1*pf5z3J7L7QX3it_LFVf4DQ.jpeg)
-
-# The most important part of a data science project is writing a blog post
 
 ## Writing creates opportunities, gives you critical communication practice, and makes you a better data scientist through feedback
 
@@ -34,7 +35,8 @@ To give a real-world example, my [Data Analysis repo](https://github.com/WillKoe
 
 The value of an analysis is proportional not to using the best algorithm or the most data, but rather to _how well you can share the results_ with a wide audience. In 1854, [John Snow](https://en.wikipedia.org/wiki/John_Snow) helped slow a [cholera epidemic in London](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak) using _578 data points, a public essay, and a dot map_. Rather than hide away his results in a notebook and hope that people stumbled on them, he published his work and made it easily accessible.
 
-![](https://cdn-images-1.medium.com/max/1600/1*IatfzjSCHveSgl9R8vaJ-g.jpeg)John Snow’s dot map of the London cholera outbreak. ([Source](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/1024px-Snow-cholera-map-1.jpg))
+![](https://cdn-images-1.medium.com/max/1600/1*IatfzjSCHveSgl9R8vaJ-g.jpeg)John Snow’s dot map of the London cholera outbreak.
+*([Source](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/1024px-Snow-cholera-map-1.jpg))*
 
 In the end, he was able to convince the town members to disable a water pump, thereby stopping the spread of cholera and achieving the objective of data science: **make better real-world decisions using data**.
 
@@ -71,6 +73,7 @@ Dealing with feedback on the Internet can be tough, but I’ve found the data sc
 3.  **Non-constructive criticism:** ignore
 
 ![](https://cdn-images-1.medium.com/max/1600/1*DTWomxLBgR6tfr_DuEwTpA.jpeg)
+*Cycle of Improvement*
 
 Unfortunately, we often don’t take the time to review our own work as often as we should, but, fortunately, we can share it with the world and have _other people_ review it. These other people are probably more honest about our work than we would have been, so we get a more objective assessment by sharing.
 
@@ -94,4 +97,8 @@ Right now, take one of your Jupyter notebooks, and write an article. Put it out 
 
 Keep working on your [data science projects](https://github.com/WillKoehrsen), but don’t stop at the moment the code goes up on GitHub or is turned in. Take that final step and write an article. Your future self will thank you!
 
-As always, I welcome feedback, constructive criticism, and hearing about your data science projects. I can be reached on Twitter [@koehrsen_will](http://twitter.com/koehrsen_will).
+*****
+
+As always, I welcome feedback, constructive criticism, and hearing about your data science projects. I can be reached on Twitter [@koehrsen_will](http://twitter.com/koehrsen_will) or on my personal website at [willk.online](https://willk.online).
+
+*****
