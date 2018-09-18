@@ -9,7 +9,7 @@ published: true
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 	  <div class = "post-info">
      		<div class="date">
-      			Published on {{ page.date | date: "%B %e, %Y" }}
+      			Published on {{ post.date | date: "%B %e, %Y" }}
      		</div>
      		<div class="post-categories">Categories: 
        		{% if post %}
