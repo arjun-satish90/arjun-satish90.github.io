@@ -3,6 +3,9 @@ published: true
 title: >-
   How to Visualize a Decision Tree from a Random Forest in Python Using
   Scikit-Learn
+categories:
+  - useful tips
+  - visualization
 ---
 ![](https://cdn-images-1.medium.com/max/2000/1*lAhJt7bvEDxT4DEdd29yCA.jpeg)
 
