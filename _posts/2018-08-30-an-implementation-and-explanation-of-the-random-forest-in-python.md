@@ -1,6 +1,9 @@
 ---
 published: true
 title: An Implementation and Explanation of the Random Forest in Python
+categories:
+  - machine learning
+  - tutorial
 ---
 ![](https://cdn-images-1.medium.com/max/1000/1*VQBcSuSfFqSePJaEC0T5yg.jpeg)
 *([Source](https://www.pexels.com/photo/ball-ball-shaped-blur-daylight-269057/).*
