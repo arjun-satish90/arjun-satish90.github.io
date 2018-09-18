@@ -1,8 +1,11 @@
-* * *
-
+---
+published: false
+title: "Why Automated Feature Engineering Will Change the Way You Do Machine\_Learning"
+categories:
+  - feature engineering
+  - machine learning
+---
 ![](https://cdn-images-1.medium.com/max/2000/1*kFW26Zy7Fuze197LSOl4Iw.jpeg)
-
-# Why Automated Feature Engineering Will Change the Way You Do Machine Learning
 
 ## Automated feature engineering will save you time, build better predictive models, create meaningful features, and prevent data leakage
 
@@ -10,7 +13,8 @@ There are few certainties in data science — libraries, tools, and algorith
 
 Recent years have seen progress in [automating model selection](https://epistasislab.github.io/tpot/api/) and [hyperparameter tuning](https://github.com/automl), but the [most important aspect](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf) of the machine learning pipeline, feature engineering, has largely been neglected. The most capable entry in this critical field is [Featuretools](https://docs.featuretools.com/#minute-quick-start), an open-source Python library. In this article, we’ll use this library to see how automated feature engineering will change the way you do machine learning for the better.
 
-![](https://cdn-images-1.medium.com/max/1600/1*ER9NQ7QQ36WNgEoHSaDduQ.png)Featuretools is an open-source Python library for automated feature engineering.
+![](https://cdn-images-1.medium.com/max/1600/1*ER9NQ7QQ36WNgEoHSaDduQ.png)
+*Featuretools is an open-source Python library for automated feature engineering.*
 
 Automated feature engineering is a relatively new technique, but, after using it to solve a number of data science problems using real-world data sets, I’m convinced it should be a _standard_ part of any machine learning workflow. Here we’ll take a look at the results and conclusions from two of these projects with the full [code available as Jupyter Notebooks on GitHub](https://github.com/Featuretools/Automated-Manual-Comparison).
 
@@ -20,6 +24,8 @@ Each project highlights some of the benefits of automated feature engineering:
 *   **Retail Spending Prediction:** automated feature engineering creates meaningful features and prevents data leakage by internally handling time-series filters, enabling successful model deployment. ([Notebooks](https://github.com/Featuretools/Automated-Manual-Comparison/tree/master/Retail%20Spending))
 
 Feel free to dig into the code and try out Featuretools! (Full disclosure: I work for [Feature Labs](https://www.featurelabs.com/), the company developing the library. These projects were completed with the free, open-source version of Featuretools).
+
+<!--more-->
 
 * * *
 
@@ -39,7 +45,8 @@ Automated feature engineering improves upon this standard workflow by automatica
 
 The primary difficulty facing a data scientist approaching the Home Credit Loan problem (a [machine learning competition currently running on Kaggle](https://www.kaggle.com/c/home-credit-default-risk) where the objective is to predict if a loan will be repaid by a client) is the size and spread of the data. Take a look at the complete dataset and you are confronted with _58 million_ rows of data spread across seven tables. Machine learning requires a single table for training, so feature engineering means consolidating all the information about each client in one table.
 
-![](https://cdn-images-1.medium.com/max/2000/1*aEY3yRu-N4YJNDE6Pi0LRA.png)Feature engineering requires capturing all information from a set of related tables into one table.
+![](https://cdn-images-1.medium.com/max/2000/1*aEY3yRu-N4YJNDE6Pi0LRA.png)
+*Feature engineering requires capturing all information from a set of related tables into one table.*
 
 My first attempt at the problem used traditional manual feature engineering: I spent a total of **10 hours** creating a set of features by hand. First I read [other data scientist’s work](https://www.kaggle.com/c/home-credit-default-risk/kernels), explored the data, and researched the problem area in order to acquire the necessary domain knowledge. Then I translated the knowledge into code, building one feature at a time. As an example of a single manual feature, I found the total number of late payments a client had on previous loans, an operation that required using 3 different tables.
 
@@ -47,7 +54,8 @@ The final manual engineered features performed quite well, achieving a 65% impro
 
 However, inefficient does not even begin to describe this process. For manual feature engineering, I ended up spending over 15 minutes per feature because I used the traditional approach of making a single feature at a time.
 
-![](https://cdn-images-1.medium.com/max/2000/1*DoNn5kB0I1BTEjhO2D3yOA.png)The Manual Feature Engineering process.
+![](https://cdn-images-1.medium.com/max/2000/1*DoNn5kB0I1BTEjhO2D3yOA.png)
+*The Manual Feature Engineering process.*
 
 Besides being tedious and time-consuming, manual feature engineering is:
 
@@ -62,7 +70,8 @@ Furthermore, the final manual engineered features are limited both by **human cr
 
 As implemented in Featuretools, automated feature engineering allows even a domain novice such as myself to create thousands of relevant features from a set of related data tables. All we need to know is the basic structure of our tables and the relationships between them which we track in a single data structure called an [entity set](https://docs.featuretools.com/generated/featuretools.EntitySet.html). Once we have an entity set, using a method called [Deep Feature Synthesis](https://www.featurelabs.com/blog/deep-feature-synthesis/) (DFS), we’re able to build thousands of features in _one function call_.
 
-![](https://cdn-images-1.medium.com/max/2000/1*j378-FXFsLyb7vsNOhcQOA.png)The Automated Feature Engineering process using Featuretools.
+![](https://cdn-images-1.medium.com/max/2000/1*j378-FXFsLyb7vsNOhcQOA.png)
+*The Automated Feature Engineering process using Featuretools.*
 
 DFS works using functions called [“primitives”](https://docs.featuretools.com/automated_feature_engineering/primitives.html) to aggregate and transform our data. These primitives can be as simple as taking a mean or a max of a column, or they can be complex and based on subject expertise because [Featuretools allows us to define our own custom primitives](https://docs.featuretools.com/guides/advanced_custom_primitives.html).
 
@@ -72,11 +81,13 @@ Feature primitives include many operations we already would do manually by hand,
 
 I’ll spare you the few lines of code needed for the set-up, but the action of DFS happens in a single line. Here we make _thousands of features_ for each client using all 7 tables in our dataset ( `ft` is the imported featuretools library) :
 
-<pre name="1bf1" id="1bf1" class="graf graf--pre graf-after--p"># Deep feature synthesis
-feature_matrix, features = ft.dfs(entityset=es, 
-                                  target_entity='clients',
-                                  agg_primitives = agg_primitives,
-                                trans_primitives = trans_primitives)</pre>
+    # Deep feature synthesis
+    feature_matrix, features = ft.dfs(entityset=es, 
+                                      target_entity='clients',
+                                      agg_primitives = agg_primitives,
+                                      trans_primitives = trans_primitives)
+                                    
+<center>Deep Feature Synthesis Code</center>
 
 Below are some of the **1820 features** we automatically get from Featuretools:
 
@@ -92,7 +103,9 @@ I’ll admit that there is a slight time cost to learning Featuretools but it’
 
 The following graphs sum up my experience for the loan repayment problem:
 
-![](https://cdn-images-1.medium.com/max/800/1*wRb-oxJyAg_pD--pH6Knlg.png)![](https://cdn-images-1.medium.com/max/800/1*6B-QTXQZgeuf_YWrCCxMpw.png)![](https://cdn-images-1.medium.com/max/800/1*nuRuzRMYJno7W8WckHT32A.png)Comparison between automated and manual feature engineering on time, number of features, and performance.
+Time | Features | Performance
+:-:  | :-:      | :-:
+![](https://cdn-images-1.medium.com/max/800/1*wRb-oxJyAg_pD--pH6Knlg.png)| ![](https://cdn-images-1.medium.com/max/800/1*6B-QTXQZgeuf_YWrCCxMpw.png)| ![](https://cdn-images-1.medium.com/max/800/1*nuRuzRMYJno7W8WckHT32A.png)
 
 *   Development time: accounts for everything required to make the final feature engineering code: **10 hours manual vs 1 hour automated**
 *   Number of features produced by the method: **30 features manual vs 1820 automated**
@@ -116,12 +129,13 @@ Fortunately, ensuring that our data is valid in a time-series problem is [straig
 
 The features for a customer in a given month are built using data filtered to before the month. Notice that the call to create our set of features is the same as that for the loan repayment problem with the addition of `cutoff_time.`
 
-<pre name="b98c" id="b98c" class="graf graf--pre graf-after--p"># Deep feature synthesis
-feature_matrix, features = ft.dfs(entityset=es, 
-                                  target_entity='customers',
-                                  agg_primitives = agg_primitives,
-                                trans_primitives = trans_primitives,
-                                  cutoff_time = cutoff_times)</pre>
+	# Deep feature synthesis
+    feature_matrix, features = ft.dfs(entityset=es, 
+                                      target_entity='customers',
+                                      agg_primitives = agg_primitives,
+                                      trans_primitives = trans_primitives,
+                                      cutoff_time = cutoff_times)
+<center>Deep Feature Synthesis with Cutoff Times Code</center>
 
 The result of running Deep Feature Synthesis is a table of features, one for each customer _for each month_. We can use these features to train a model with our labels and then make predictions for any month. Moreover, we can rest assured that the features in our model do not use future information, which would result in an unfair advantage and yield misleading training scores.
 
@@ -129,7 +143,8 @@ With the automated features, I was able to build a machine learning model that a
 
 In addition to delivering impressive predictive performance, the Featuretools implementation gave me something equally valuable: interpretable features. Take a look at the 15 most important features from a random forest model:
 
-![](https://cdn-images-1.medium.com/max/2000/1*4FLqyRQrCKK4fZ-ISNhAyg.png)15 most important Featuretools features from a random forest model.
+![](https://cdn-images-1.medium.com/max/2000/1*4FLqyRQrCKK4fZ-ISNhAyg.png)
+*15 most important Featuretools features from a random forest model.*
 
 The feature importances tell us that the most important predictors of how much the customer will spend in the next month is how much they have spent previously `SUM(purchases.total)` , and the number of purchases, `SUM(purchases.quantity).`These are features that we could have built by hand, but then we would have to worry about leaking data and creating a model that does much better in development than in deployment.
 
@@ -141,7 +156,8 @@ If the tool already exists for creating meaningful features without any need to 
 
 Even after spending significantly more time on manual feature engineering than I did with Featuretools, I was not able to develop a set of features with close to the same performance. The graph below shows the ROC curves for classifying one month of future customer sales using a model trained on the two datasets. A curve to the left and top indicates better predictions:
 
-![](https://cdn-images-1.medium.com/max/2000/1*hwh1sOK9_GcKRYA4pg9vEA.png)ROC curves comparing automated and manual feature engineering results. A curve to the left and top indicates better performance.
+![](https://cdn-images-1.medium.com/max/2000/1*hwh1sOK9_GcKRYA4pg9vEA.png)
+*ROC curves comparing automated and manual feature engineering results. A curve to the left and top indicates better performance.*
 
 I’m not even completely sure if the manual features were made using valid data, but with the Featuretools implementation, I didn’t have to worry about data leakage in time-dependent problems. Maybe this inability to manually engineer a useful set of valid features speaks to my failings as a data scientist, but if the tool exists to safely do this for us, why not use it?
 
@@ -168,3 +184,7 @@ The main conclusions are that automated feature engineering:
 * * *
 
 If building meaningful, high-performance predictive models is something you care about, then get in touch with us at [Feature Labs](https://www.featurelabs.com/contact/). While this project was completed with the open-source Featuretools, the [commercial product](https://www.featurelabs.com/product) offers additional tools and support for creating machine learning solutions.
+
+***** 
+
+As always, I welcome feedback and constructive criticism. I can be reached on Twitter or through my personal website [willk.online](https://willk.online).
