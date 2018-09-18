@@ -140,6 +140,17 @@ img + em {
     font-size: 14px;
     color: black;
 }
+
+// categories
+.post-info {
+	width: 90%;
+}
+ 
+.post-categories {
+	float: right;
+    font-style: italic;
+ }
+ 
  
  // Container for holding live code
  iframe {
@@ -163,6 +174,7 @@ img + em {
 }
 
 .date {
+  float: right;
   font-style: italic;
   color: $gray;
 }
