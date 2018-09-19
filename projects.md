@@ -2,7 +2,7 @@
 title: Projects
 published: true
 layout: page
-permalink: /projects2/
+permalink: /projects/
 ---
 
 * Following are a collection of data science projects I've completed over the past several years
