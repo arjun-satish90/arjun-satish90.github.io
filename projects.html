@@ -1,0 +1,47 @@
+
+<div class="posts">
+  {% for project in paginator.projects%}
+    <article class="post">
+      <h1><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></h1>
+	  <div class = "project-info">
+     		<div class="date">
+      			Completed in {{ project.date | date: "%B %Y" }}
+     		</div>
+     		<div class="project-tags">Tags: 
+       		{% if project %}
+         		{% assign tags = project.tags %}
+       		{% else %}
+         		{% assign tags = page.tags %}
+       		{% endif %}
+       		{% for tags in tags %}
+       			<a href="{{site.baseurl}}/tags/#{{tag|slugize}}">{{tag}}</a>
+       		{% if forloop.last == false %},{% endif %}
+       		{% endfor %}
+      		</div>
+  		</div>
+      <div class="entry">
+        {{ project.excerpt }}
+      </div>
+      <a href="{{ site.baseurl }}{{ project.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">
+      Previous
+    </a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">
+    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
