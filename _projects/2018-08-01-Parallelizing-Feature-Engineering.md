@@ -1,6 +1,10 @@
 ---
-layout: page
-tags: [parallelization, feature engineering, Dask]
+layout: project
+tags:
+  - parallelization
+  - feature engineering
+  - Dask
+published: true
 ---
 
 ## Parallelizing Feature Engineering
