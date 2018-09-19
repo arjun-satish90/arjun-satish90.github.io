@@ -64,7 +64,7 @@ prose:
         field:
           element: "text"
           label: "title"
-   _projects:
+  	_projects:
       - name: "title"
         field:
           element: "text"
