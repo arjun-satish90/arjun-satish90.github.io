@@ -1,6 +1,10 @@
 ---
-layout: page
-tags: [data science, machine learning, social good]
+layout: project
+tags:
+  - data science
+  - machine learning
+  - social good
+published: true
 ---
 
 ## Data Science for Good: Costa Rica Poverty Prediction
