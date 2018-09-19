@@ -65,6 +65,14 @@ prose:
           element: "text"
           label: "title"
 
+prose:
+  metadata:
+    _projects:
+      - name: "title"
+        field:
+          element: "text"
+          label: "title"
+          
 permalink: /:categories/:title/
 
 # The release of Jekyll Now that you're using
