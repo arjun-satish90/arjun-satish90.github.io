@@ -64,7 +64,9 @@ prose:
         field:
           element: "text"
           label: "title"
-  	_projects:
+prose:
+  metadata:
+    _projects:
       - name: "title"
         field:
           element: "text"
