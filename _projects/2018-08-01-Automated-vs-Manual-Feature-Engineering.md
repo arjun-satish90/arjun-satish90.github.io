@@ -6,6 +6,7 @@ tags:
   - feature engineering
   - automation
   - machine learning
+layout: project
 ---
 ## Automated vs Manual Feature Engineering for Machine Learning
 
