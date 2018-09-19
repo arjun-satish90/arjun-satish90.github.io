@@ -1,3 +1,8 @@
+---
+layout: page
+tags: [data science, machine learning, social good]
+---
+
 ## Data Science for Good: Costa Rica Poverty Prediction
 
 ![](https://cdn-images-1.medium.com/max/540/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)
@@ -33,4 +38,3 @@ In this complete data science for good machine learning project, I build a gradi
 
 ![](https://cdn-images-1.medium.com/max/540/1*F4F_vnQXiB5RjGNZUOWwug.png)
 *UMAP Embedding of Data*
-
