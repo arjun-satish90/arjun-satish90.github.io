@@ -1,6 +1,9 @@
 ---
-layout: page
-tags: [machine learning, walkthrough]
+layout: project
+tags:
+  - machine learning
+  - walkthrough
+published: true
 ---
 
 
