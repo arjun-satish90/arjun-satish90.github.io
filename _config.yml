@@ -64,17 +64,6 @@ prose:
         field:
           element: "text"
           label: "title"
-prose:
-  metadata:
-    _projects:
-      - name: "title"
-        field:
-          element: "text"
-          label: "title"
-          
-collections:
-   projects:
-      output: true
 
 permalink: /:categories/:title/
 
