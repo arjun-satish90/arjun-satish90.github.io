@@ -58,7 +58,7 @@ This code makes use of the `BeautifulSoup` library for parsing HTML. Given that 
 
 For this project, we’ll take the dump on September 1, 2018 (some of the dumps are incomplete so make sure to choose one with the data you need). To find all the available files in the dump, we use the following code:
 
-```{python}
+```python
 dump_url = base_url + '20180901/'
 # Retrieve the html
 dump_html = requests.get(dump_url).text
@@ -91,7 +91,7 @@ The partitioned files are available as bz2-compressed XML (eXtended Markup Langu
 
 To actually download the files, the Keras utility `get_file` is extremely useful. This downloads a file at a link and saves it to disk.
 
-```{python}
+```python
 from keras.utils import get_file
 saved_file_path = get_file(file, url)
 ```
@@ -108,7 +108,7 @@ To iterate through a `bz2` compressed file we could use the `bz2` library. In te
 
 For the complete details, see the notebook, but the basic format of iteratively decompressing a file is:
 
-```{python}
+```python
 data_path = '~/.keras/datasets/enwiki-20180901-pages-articles15.xml-p7744803p9244803.bz2
 # Iterate through compressed file one line at a time
 for line in subprocess.Popen(['bzcat'], 
@@ -140,7 +140,7 @@ To solve the first problem of locating articles, we’ll use the [SAX parser](ht
 
 The basic idea we need to execute is to search through the XML and extract the information between specific tags (If you need an introduction to XML, I’d recommend starting [here](https://www.w3schools.com/xml/default.asp)). For example, given the XML below:
 
-```{XML}
+```XML
 <title>Carroll F. Knicely</title>
 <text xml:space="preserve">\'\'\'Carroll F. Knicely\'\'\' (born c. 1929 in [[Staunton, Virginia]] - died November 2, 2006 in [[Glasgow, Kentucky]]) was [[Editing|editor]] and [[Publishing|publisher]] of the \'\'[[Glasgow Daily Times]]\'\' for nearly 20 years (and later, its owner) and served under three [[Governor of Kentucky|Kentucky Governors]] as commissioner and later Commerce Secretary.\n'
 </text>
@@ -160,7 +160,7 @@ In this code, we are looking for the tags `title` and `text` . Every time the p
 
 The code below shows how we use this to search through the XML file to find articles. For now we’re just saving them to the `handler._pages` attribute, but later we’ll send the articles to another function for parsing.
 
-```{python}
+```python
 # Object for handling xml
 handler = WikiXmlHandler()
 # Parsing object
@@ -179,7 +179,7 @@ for line in subprocess.Popen(['bzcat'],
 
 If we inspect `handler._pages` , we’ll see a list, each element of which is a tuple with the title and text of one article:
 
-```{python}
+```python
 handler._pages[0]
 [('Carroll Knicely',
   "'''Carroll F. Knicely''' (born c. 1929 in [[Staunton, Virginia]] - died November 2, 2006 in [[Glasgow, Kentucky]]) was [[Editing|editor]] and [[Publishing|publisher]] ...)]
@@ -193,7 +193,7 @@ Wikipedia runs on a software for building wikis known as [MediaWiki](https://www
 
 If we pass the text of a Wikipedia article to the `mwparserfromhell` , we get a `Wikicode` object which comes with many methods for sorting through the data. For example, the following code creates a wikicode object from an article (about [KENZ FM](https://en.wikipedia.org/wiki/KENZ_%28FM%29)) and retrieves the `wikilinks()` within the article. These are all of the links that point to other Wikipedia articles:
 
-```{python}
+```python
 import mwparserfromhell
 # Create the wiki article
 wiki = mwparserfromhell.parse(handler._pages[6][1])
@@ -206,7 +206,7 @@ wikilinks[:5]
 
 There are a number of [useful methods](https://mwparserfromhell.readthedocs.io/en/latest/) that can be applied to the `wikicode` such as finding comments or searching for a specific keyword. If you want to get a clean version of the article text, then call:
 
-```{python}
+```python
 wiki.strip_code().strip()
 
 'KENZ (94.9 FM,  " Power 94.9 " ) is a top 40/CHR radio station broadcasting to Salt Lake City, Utah '
@@ -225,7 +225,7 @@ Since my ultimate goal was to find all the articles about books, the question ar
 
 Each category of articles on Wikipedia, such as films, books, or radio stations, has its own type of infobox. In the case of books, the infobox template is helpfully named `Infobox book`. Just as helpful, the `wiki` object has a method called `filter_templates()` that allows us to extract a specific template from an article. Therefore, if we want to know whether an article is about a book, we can filter it for the book infobox. This is shown below:
 
-```{python}
+```python
 # Filter article for book template
 wiki.filter_templates('Infobox book')
 ```
@@ -234,7 +234,7 @@ If there’s a match, then we’ve found a book! To find the Infobox template fo
 
 How do we combine the `mwparserfromhell` for parsing articles with the SAX parser we wrote? Well, we modify the `endElement` method in the Content Handler to send the dictionary of values containing the title and text of an article to a function that searches the article text for specified template. If the function finds an article we want, it extracts information from the article and then returns it to the `handler`. First, I’ll show the updated `endElement` :
 
-```{python}
+```python
 def endElement(self, name):
     """Closing tag of element"""
     if name == self._current_tag:
@@ -268,7 +268,7 @@ Found 1426 books in 1055 seconds.**
 
 Let’s take a look at the output for one book:
 
-```{text}
+```text
 ['War and Peace',
  {'name': 'War and Peace',
   'author': 'Leo Tolstoy',
@@ -336,7 +336,7 @@ After running a number of tests, I found the fastest way to process the files wa
 
 To run an operation in parallel, we need a `service` and a set of `tasks` . A service is just a function and tasks are in an iterable — such as a list — each of which we send to the function. For the purpose of parsing the XML files, each task is one file, and the function will take in the file, find all the books, and save them to disk. The pseudo-code for the function is below:
 
-```{python}
+```python
 def find_books(data_path, save = True):
     """Find and save all the book articles from a compressed 
        wikipedia XML file. """
@@ -347,7 +347,7 @@ def find_books(data_path, save = True):
 
 The end result of running this function is a saved list of books from the file sent to the function. The files are saved as `json`, a machine readable format for writing nested information such as lists of lists and dictionaries. The tasks that we want to send to this function are all the compressed files.
 
-```{python}
+```python
 # List of compressed files to process
 partitions = [keras_home + file for file in os.listdir(keras_home) if 'xml-p' in file]
 len(partitions), partitions[-1]
@@ -361,7 +361,7 @@ For each file, we want to send it to `find_books` to be parsed.
 
 The final code to search through every article on Wikipedia is below:
 
-```{python}
+```python
 from multiprocessing import Pool
 # Create a pool of workers to execute processes
 pool = Pool(processes = 16)
@@ -383,7 +383,7 @@ For practice writing parallelized code, we’ll read the separate files in with 
 
 The multithreaded code works in the exact same way, `mapping` tasks in an iterable to function. Once we have the list of lists, we flatten it to a single list.
 
-```{python}
+```python
 print(f'Found {len(book_list)} books.')
 
 __Found 37861 books.__
