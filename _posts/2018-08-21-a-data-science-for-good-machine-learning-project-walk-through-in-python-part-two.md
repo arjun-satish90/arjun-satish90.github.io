@@ -6,9 +6,6 @@ categories:
   - data science for good
   - project
 ---
-![](https://cdn-images-1.medium.com/max/2000/1*nGFXkodXfbOtPr5LspUgGw.jpeg)
-*([Source](https://github.com/dconnolly/chromecast-backgrounds))*
-
 ## Getting the most from our model, figuring out what it all means, and experimenting with new techniques
 
 Machine learning is a powerful framework that from the outside may look complex and intimidating. However, once we break down a problem into its component steps, we see that machine learning is really only a sequence of understandable processes, each one simple by itself.
