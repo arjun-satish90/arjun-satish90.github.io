@@ -6,9 +6,6 @@ categories:
   - feature engineering
   - Dask
 ---
-![](https://cdn-images-1.medium.com/max/2000/1*ble-iLK9NDmCeBha0wuSfg.jpeg)
-*(Source)[https://www.pexels.com/photo/timelapse-photography-of-road-with-white-and-red-lights-169976/]*
-
 ## How to scale Featuretools using parallel processing
 
 When a computation is prohibitively slow, the most important question to ask is: “What is the bottleneck?” Once you know the answer, the logical next step is to figure out how to get around that bottleneck.
