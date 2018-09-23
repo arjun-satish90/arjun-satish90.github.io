@@ -119,7 +119,8 @@ for line in subprocess.Popen(['bzcat'],
 
 If we simply read in the XML data and append it to a list, we get something that looks like this:
 
-![](https://cdn-images-1.medium.com/max/1600/1*w4eUohIv7K1YBAaw9vfsGA.png)Raw XML from Wikipedia Article.
+![](https://cdn-images-1.medium.com/max/1600/1*w4eUohIv7K1YBAaw9vfsGA.png)
+*Raw XML from Wikipedia Article.*
 
 This shows the XML from a single Wikipedia article. The files we have downloaded contain millions of lines like this, with thousands of articles in each file. If we really wanted to make things difficult, we could go through this using regular expressions and string matching to find each article. Given this is extraordinarily inefficient, we’ll take a better approach using tools custom built for parsing both XML and Wikipedia-style articles.
 
