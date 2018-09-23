@@ -6,8 +6,6 @@ categories:
   - data science
 ---
 
-![](https://cdn-images-1.medium.com/max/2000/1*pf5z3J7L7QX3it_LFVf4DQ.jpeg)
-
 ## Writing creates opportunities, gives you critical communication practice, and makes you a better data scientist through feedback
 
 It can be tempting to call a data science project complete after you’ve uploaded the final code to GitHub or handed in your assignment. However, if you stop there, you’re missing out on the most crucial step of the process: writing and sharing an article about your project. Writing a blog post isn’t typically considered part of the data science pipeline, but to get the most from your work, then it should be the _standard_ last step in any of your projects.
