@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## How to quickly export Medium articles to your blog
 
