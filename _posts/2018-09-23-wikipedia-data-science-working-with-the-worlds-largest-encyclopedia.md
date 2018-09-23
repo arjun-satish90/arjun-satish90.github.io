@@ -4,7 +4,7 @@ title: 'Wikipedia Data Science: Working with the World’s Largest Encyclopedia'
 categories:
   - data science
 ---
-<br>
+<br></br>
 
 ## How to programmatically download and parse the Wikipedia
 
