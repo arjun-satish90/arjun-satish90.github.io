@@ -4,8 +4,6 @@ title: 'Wikipedia Data Science: Working with the World’s Largest Encyclopedia'
 categories:
   - data science
 ---
-<br></br>
-
 ## How to programmatically download and parse the Wikipedia
 
 Wikipedia is one of modern humanity’s most impressive creations. Who would have thought that in just a few years, anonymous contributors working for free could create the [greatest source of online knowledge](https://en.wikipedia.org/wiki/Wikipedia) the world has ever seen? Not only is Wikipedia the [best place to get information for writing your college papers](https://www.nature.com/articles/438900a), but it’s also an extremely rich source of data that can fuel numerous data science projects from natural language processing to supervised machine learning.
