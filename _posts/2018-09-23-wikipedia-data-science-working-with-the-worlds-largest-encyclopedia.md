@@ -31,7 +31,7 @@ The first step in any data science project is accessing your data! While we coul
 
 The English version is at [dumps.wikimedia.org/enwiki](http://dumps.wikimedia.org/enwiki). We view the available versions of the database using the following code.
 
-```{python}
+```python
 import requests
 # Library for parsing HTML
 from bs4 import BeautifulSoup
