@@ -6,8 +6,6 @@ categories:
   - Python
   - project
 ---
-![](https://cdn-images-1.medium.com/max/1000/1*8ayKCPB_lYTNNxMLE2fkgA.jpeg)
-
 ## Don’t just read about machine learning — practice it!
 
 After spending considerable time and money on courses, books, and videos, I’ve
