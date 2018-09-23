@@ -6,9 +6,6 @@ categories:
   - data science for good
   - project
 ---
-![](https://cdn-images-1.medium.com/max/2000/1*kXJHvMq_yced4cTeY43IRA.jpeg)
-*([Source](https://github.com/dconnolly/chromecast-backgrounds))*
-
 ## Solving a complete machine learning problem for societal benefit
 
 Data science is an immensely powerful tool in our data-driven world. Call me idealistic, but I believe this tool should be used for more than getting people to click on ads or spend more time consumed by social media.
