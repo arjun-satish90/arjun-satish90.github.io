@@ -393,7 +393,8 @@ Wikipedia has nearly 38,000 articles on books according to our count. The size o
 
 We now have information on every single book on Wikipedia. You can use the same code to find articles for any category of your choosing, or modify the functions to search for different information. Using some fairly simple Python code, we are able to search through an incredible amount of information.
 
-![](https://cdn-images-1.medium.com/max/1600/1*mG3zUezNX7JJAs9wanRvmg.png)Size of Wikipedia if printed in volumes ([Source](https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia)).
+![](https://cdn-images-1.medium.com/max/1600/1*mG3zUezNX7JJAs9wanRvmg.png)
+*Size of Wikipedia if printed in volumes ([Source](https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia)).*
 
 * * *
 
