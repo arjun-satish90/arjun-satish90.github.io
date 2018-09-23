@@ -5,8 +5,6 @@ categories:
   - feature engineering
   - machine learning
 ---
-![](https://cdn-images-1.medium.com/max/2000/1*kFW26Zy7Fuze197LSOl4Iw.jpeg)
-
 ## Automated feature engineering will save you time, build better predictive models, create meaningful features, and prevent data leakage
 
 There are few certainties in data science — libraries, tools, and algorithms constantly change as better methods are developed. However, one trend that is not going away is the move towards _increased levels of automation._
