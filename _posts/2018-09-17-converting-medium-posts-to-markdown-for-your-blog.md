@@ -1,5 +1,8 @@
 ---
 published: true
+categories:
+  - writing
+  - markdown
 ---
 ## How to quickly export Medium articles to your blog
 
