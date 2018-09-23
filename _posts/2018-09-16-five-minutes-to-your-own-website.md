@@ -5,9 +5,6 @@ categories:
   - writing
   - web development
 ---
-![](https://cdn-images-1.medium.com/max/2000/1*iPY8nENYXcSoH-UmNP8_iw.jpeg)
-*([Source](https://www.pexels.com/photo/landscape-blue-cloud-109678/))*
-
 ## How to Use GitHub Pages and Jekyll to get started with your own — entirely free — blog
 
 Building your own website is rewarding on several levels. There’s the opportunity to showcase your work to friends, family, and potential employers, the pride in making something, and the freedom to shape a (very small) part of the web to your tastes.
