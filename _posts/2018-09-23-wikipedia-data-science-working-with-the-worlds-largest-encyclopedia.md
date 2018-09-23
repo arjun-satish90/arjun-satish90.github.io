@@ -1,6 +1,8 @@
 ---
-published: false
+published: true
 title: 'Wikipedia Data Science: Working with the World’s Largest Encyclopedia'
+categories:
+  - data science
 ---
 <br>
 
