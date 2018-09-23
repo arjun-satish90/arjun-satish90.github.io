@@ -5,9 +5,9 @@ categories:
   - markdown
 title: Converting Medium Articles to Markdown
 ---
-<br>
-
 ## How to quickly export Medium articles to your blog
+
+<br></br>
 
 If like me, you got your start blogging on Medium, but also want to build your own website to display your articles, you’ll need a way to move articles from Medium to the Markdown language. [Markdown](https://daringfireball.net/projects/markdown/syntax) is a lightweight language meant to be converted into HTML for the web, and there are several tools that allow you to go from existing Medium articles to Markdown for a blog.
 
