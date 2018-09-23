@@ -5,9 +5,6 @@ categories:
   - useful tips
   - Medium
 ---
-![](https://cdn-images-1.medium.com/max/2000/1*JTdMap3RCYkwPNxtoF8u-w.jpeg)
-*([Source](https://www.pexels.com/photo/blur-close-up-code-computer-546819/))*
-
 ## Code is meant to be interactive.
 
 1.  Head to [repl.it](http://repl.it)
