@@ -17,6 +17,8 @@ After using [Dask to scale automated feature engineering](https://medium.com/p/3
 
 In this article, we’ll see how to use Spark with [PySpark](https://spark.apache.org/docs/0.9.0/python-programming-guide.html) to run [Featuretools](https://github.com/Featuretools/featuretools) on a computing cluster to scale to even larger datasets. The code for this article is available as a [Jupyter Notebook on GitHub](https://github.com/Featuretools/predicting-customer-churn-with-spark/blob/master/churn/Feature%20Engineering%20on%20Spark.ipynb).
 
+<!--more-->
+
 * * *
 
 ### Data and Problem
