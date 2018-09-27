@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "Featuretools on\_Spark"
 categories:
   - parallelization
