@@ -17,8 +17,6 @@ After using [Dask to scale automated feature engineering](https://medium.com/p/3
 
 In this article, we’ll see how to use Spark with [PySpark](https://spark.apache.org/docs/0.9.0/python-programming-guide.html) to run [Featuretools](https://github.com/Featuretools/featuretools) on a computing cluster to scale to even larger datasets. The code for this article is available as a [Jupyter Notebook on GitHub](https://github.com/Featuretools/predicting-customer-churn-with-spark/blob/master/churn/Feature%20Engineering%20on%20Spark.ipynb).
 
-<!--more-->
-
 * * *
 
 ### Data and Problem
@@ -110,7 +108,7 @@ Getting a cluster running is the hardest point, and from here, the code to distr
 
 The first thing to do in the Jupyter Notebook is initialize Spark . For this we use the `findspark` Python library, passing in the location of the Spark installation on the parent machine.
 
-	import findspark</pre>
+	import findspark
 
 	# Initialize with Spark file location
 	findspark.init('/usr/local/spark-2.3.1-bin-hadoop2.7/')
