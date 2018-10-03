@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Neural Network Embeddings Explained
 categories:
   - deep learning
