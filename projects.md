@@ -11,7 +11,7 @@ permalink: /projects/
 
 *****
 
-## Automated vs Manual Feature Engineering for Machine Learning
+# Automated vs Manual Feature Engineering for Machine Learning
 
 Time | Features | Performance
 :-:  | :-:      | :-:
@@ -38,7 +38,7 @@ In this project, I took on three different machine learning problems, solving ea
 
 *****
 
-## Data Science for Good: Costa Rica Poverty Prediction
+# Data Science for Good: Costa Rica Poverty Prediction
 
 ![](https://cdn-images-1.medium.com/max/540/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)
 *Pairsplot of Features*
@@ -76,7 +76,7 @@ In this complete data science for good machine learning project, I build a gradi
 
 *****
 
-## Parallelizing Feature Engineering
+# Parallelizing Feature Engineering
 
 Task Stream | Profile 
 :-: | :-:
@@ -100,7 +100,7 @@ In this project, I use the parallel computing library Dask in order to paralleli
 
 *****
 
-## NYC Taxi Fare Prediction
+# A Machine Learning Walkthrough and a Challenge
 
 Pickups            |  Dropoffs
 :-------------------------:|:-------------------------:

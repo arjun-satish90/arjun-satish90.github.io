@@ -54,13 +54,15 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-weight: 400;
-  font-size: 28px;
+  font-size: 36px;
   a {
-    color: inherit;
-  }
+    color: #021121;
+  }  
 }
 
 h2 {
+  width: 100%;
+  float: left;
   font-size: 24px;
 }
 
@@ -73,12 +75,13 @@ h4 {
 }
 
 hr {
-    border-style: solid;
-    border-width: 2px;
+    border-style: dashed;
+    border-width: 1px;
     border-color: #93938e;
 }
 
 p {
+  display: contents;
   font-size: 16px;
   font-family: Arial;
   margin: 10px 0;
@@ -143,6 +146,7 @@ img + em {
 
 // categories
 .post-info {
+	height: 30px;
 	width: 95%;
 }
  
@@ -256,6 +260,7 @@ img + em {
 }
 
 .medium-link {
+	display: block;
     font-size: 16px;
 	margin: 5px;
 }
@@ -314,8 +319,9 @@ nav {
 //
 
 .posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 3px solid #333;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  border-bottom: 5px solid #333;
 }
 
 .posts > .post:last-child {
