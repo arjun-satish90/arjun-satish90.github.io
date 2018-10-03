@@ -1,16 +1,17 @@
-* * *
-
-![](https://cdn-images-1.medium.com/max/2000/1*pVTvM5NyFRUoVZ1n7zLgkQ.jpeg)([Source](https://www.pexels.com/photo/milky-way-illustration-1169754/))
-
-# Neural Network Embeddings Explained
-
+---
+published: false
+title: Neural Network Embeddings Explained
+---
 ## How deep learning can represent _War and Peace_ as a vector
 
 Applications of neural networks have expanded significantly in recent years from image segmentation to natural language processing to time-series forecasting. One notably successful use of deep learning is embedding, a method used to represent discrete variables as continuous vectors. This technique has found practical applications with word embeddings for [machine translation](https://arxiv.org/abs/1705.03127) and [entity embeddings for categorical variables](https://arxiv.org/abs/1604.06737).
 
 In this article, I’ll explain what neural network embeddings are, why we want to use them, and how they are learned. We’ll go through these concepts in the context of a [real problem I’m working on](https://github.com/WillKoehrsen/wikipedia-data-science/blob/master/notebooks/Book%20Recommendation%20System.ipynb): representing all the books on Wikipedia as vectors to create a book recommendation system.
 
-![](https://cdn-images-1.medium.com/max/2000/1*zAdi7DntawgPsQekPkFxPA.png)Neural Network Embedding of all books on Wikipedia. ([From Jupyter Notebook on GitHub](https://github.com/WillKoehrsen/wikipedia-data-science/blob/master/notebooks/Book%20Recommendation%20System.ipynb)).
+![](https://cdn-images-1.medium.com/max/2000/1*zAdi7DntawgPsQekPkFxPA.png)
+*Neural Network Embedding of all books on Wikipedia. ([From Jupyter Notebook on GitHub](https://github.com/WillKoehrsen/wikipedia-data-science/blob/master/notebooks/Book%20Recommendation%20System.ipynb)).*
+
+<!--more-->
 
 * * *
 
@@ -43,33 +44,27 @@ The second problem is equally limiting: one-hot encoding _does not place similar
 
 This means that entities such as _War and Peace_ and _Anna Karenina_ (both classic books by Leo Tolstoy) are no closer to one another than _War and Peace_ is to _The Hitchhiker’s Guide to the Galaxy_ if we use one-hot encoding.
 
-<pre name="0a14" id="0a14" class="graf graf--pre graf-after--p">**# One Hot Encoding Categoricals**</pre>
-
-<pre name="16d7" id="16d7" class="graf graf--pre graf-after--pre">**books = ["War and Peace", "Anna Karenina", 
-          "The Hitchhiker's Guide to the Galaxy"]**</pre>
-
-<pre name="0e34" id="0e34" class="graf graf--pre graf-after--pre">**books_encoded = [[1, 0, 0],
-                 [0, 1, 0],
-                 [0, 0, 1]]**</pre>
-
-<pre name="101e" id="101e" class="graf graf--pre graf-after--pre">**Similarity (dot product) between First and Second = 0
-Similarity (dot product) between Second and Third = 0
-Similarity (dot product) between First and Third = 0**</pre>
+    # One Hot Encoding Categoricals
+    books = ["War and Peace", "Anna Karenina", 
+              "The Hitchhiker's Guide to the Galaxy"]
+    books_encoded = [[1, 0, 0],
+                     [0, 1, 0],
+                     [0, 0, 1]]
+    Similarity (dot product) between First and Second = 0
+    Similarity (dot product) between Second and Third = 0
+    Similarity (dot product) between First and Third = 0
 
 Considering these two problems, the ideal solution for representing categorical variables would require _fewer_ numbers than the number of unique categories and would place similar categories _closer_ to one another.
 
-<pre name="b724" id="b724" class="graf graf--pre graf-after--p">**# Idealized Representation of Embedding**</pre>
-
-<pre name="2ac2" id="2ac2" class="graf graf--pre graf-after--pre">**books = ["War and Peace", "Anna Karenina", 
-          "The Hitchhiker's Guide to the Galaxy"]**</pre>
-
-<pre name="ecdc" id="ecdc" class="graf graf--pre graf-after--pre">**books_encoded_ideal = [[0.53,  0.85],
-                       [0.60,  0.80],
-                       [-0.78, -0.62]]**</pre>
-
-<pre name="ab4f" id="ab4f" class="graf graf--pre graf-after--pre">**Similarity (dot product) between First and Second = 0.99
-Similarity (dot product) between Second and Third = -0.94
-Similarity (dot product) between First and Third = -0.97**</pre>
+    # Idealized Representation of Embedding
+    books = ["War and Peace", "Anna Karenina", 
+              "The Hitchhiker's Guide to the Galaxy"]
+    books_encoded_ideal = [[0.53,  0.85],
+                           [0.60,  0.80],
+                           [-0.78, -0.62]]
+    Similarity (dot product) between First and Second = 0.99
+    Similarity (dot product) between Second and Third = -0.94
+    Similarity (dot product) between First and Third = -0.97
 
 To construct a better representation of categorical entities, we can use an embedding neural network and a supervised task to _learn embeddings_.
 
@@ -81,7 +76,8 @@ The main issue with one-hot encoding is that the transformation does not rely on
 
 For example, if we have a vocabulary of 50,000 words used in a collection of movie reviews, we could learn 100-dimensional embeddings for each word using an embedding neural network trained to predict the sentimentality of the reviews. (For exactly this application see [this Google Colab Notebook](https://colab.research.google.com/notebooks/mlcc/intro_to_sparse_data_and_embeddings.ipynb?utm_source=mlcc&utm_campaign=colab-external&utm_medium=referral&utm_content=embeddings-colab&hl=en)). Words in the vocabulary that are associated with positive reviews such as “brilliant” or “excellent” will come out closer in the embedding space because the network has learned these are both associated with positive reviews.
 
-![](https://cdn-images-1.medium.com/max/1600/1*DuaSQL7EiPa-IreCXf2r5w.png)Movie Sentiment Word Embeddings ([source](https://colab.research.google.com/notebooks/mlcc/intro_to_sparse_data_and_embeddings.ipynb?utm_source=mlcc&utm_campaign=colab-external&utm_medium=referral&utm_content=embeddings-colab&hl=en))
+![](https://cdn-images-1.medium.com/max/1600/1*DuaSQL7EiPa-IreCXf2r5w.png)
+*Movie Sentiment Word Embeddings ([source](https://colab.research.google.com/notebooks/mlcc/intro_to_sparse_data_and_embeddings.ipynb?utm_source=mlcc&utm_campaign=colab-external&utm_medium=referral&utm_content=embeddings-colab&hl=en))*
 
 In the book example given above, our supervised task could be “identify whether or not a book was written by Leo Tolstoy” and the resulting embeddings would place books written by Tolstoy closer to each other. Figuring out how to create the supervised task to produce relevant representations is the toughest part of making embeddings.
 
@@ -93,29 +89,31 @@ The network I used has two parallel embedding layers that map the book and wikil
 
 In Keras code, this looks like the following (don’t worry if you don’t completely understand the code, just skip to the images):
 
-<iframe width="700" height="250" src="/media/bc44093249de53e04cb3f0590cd7d3bb?postId=4d028e6f0526" data-media-id="bc44093249de53e04cb3f0590cd7d3bb" allowfullscreen="" frameborder="0"></iframe>
+<script src="https://gist.github.com/WillKoehrsen/f4320ab152f879b0572d8f89d8300ad5.js" charset="utf-8"></script>
 
 Although in a supervised machine learning task the goal is usually to train a model to make predictions on new data, in this embedding model, the predictions can be just a means to an end. What we want is the embedding weights, the representation of the books and links as continuous vectors.
 
 The embeddings by themselves are not that interesting: they are simply vectors of numbers:
 
-![](https://cdn-images-1.medium.com/max/2000/1*9Gq6-KxBafIu8yGGokuwXA.png)Example Embeddings from Book Recommendation Embedding Model
+![](https://cdn-images-1.medium.com/max/2000/1*9Gq6-KxBafIu8yGGokuwXA.png)
+*Example Embeddings from Book Recommendation Embedding Model*
 
 However, the embeddings can be used for the 3 purposes listed previously, and for this project, we are primarily interested in recommending books based on the nearest neighbors. To compute similarity, we take a query book and find the dot product between its vector and those of all the other books. (If our embeddings are normalized, this dot product is the [cosine distance](http://blog.christianperone.com/2013/09/machine-learning-cosine-similarity-for-vector-space-models-part-iii/) between vectors that ranges from -1, most dissimilar, to +1, most similar. We could also use the Euclidean distance to measure similarity).
 
 This is the output of the book embedding model I built:
 
-<pre name="2cd9" id="2cd9" class="graf graf--pre graf-after--p">**Books closest to War and Peace.**</pre>
-
-<pre name="162e" id="162e" class="graf graf--pre graf-after--pre">**Book: War and Peace              Similarity: 1.0
-Book: Anna Karenina              Similarity: 0.79
-Book: The Master and Margarita   Similarity: 0.77
-Book: Doctor Zhivago (novel)     Similarity: 0.76
-Book: Dead Souls                 Similarity: 0.75**</pre>
+    Books closest to War and Peace.
+    
+    Book: War and Peace              Similarity: 1.0
+    Book: Anna Karenina              Similarity: 0.79
+    Book: The Master and Margarita   Similarity: 0.77
+    Book: Doctor Zhivago (novel)     Similarity: 0.76
+    Book: Dead Souls                 Similarity: 0.75
 
 (The cosine similarity between a vector and itself must be 1.0). After some dimensionality reduction (see below), we can make figures like the following:
 
-![](https://cdn-images-1.medium.com/max/1600/1*g2pnJdS3ydf3zemOMQffiQ.png)Embedding Books with Closest Neighbors
+![](https://cdn-images-1.medium.com/max/1600/1*g2pnJdS3ydf3zemOMQffiQ.png)
+*Embedding Books with Closest Neighbors*
 
 We can clearly see the value of learning embeddings! We now have a 50-number representation of every single book on Wikipedia, with similar books closer to one another.
 
@@ -127,13 +125,15 @@ One of the coolest parts about embeddings are that they can be used to visualize
 
 We can take the original 37,000 dimensions of all the books on Wikipedia, map them to 50 dimensions using neural network embeddings, and then map them to 2 dimensions using TSNE. The result is below:
 
-![](https://cdn-images-1.medium.com/max/1600/1*RmG8qwjGGbp_CAXA8eDISQ.png)Embedding of all 37,000 books on Wikipedia
+![](https://cdn-images-1.medium.com/max/1600/1*RmG8qwjGGbp_CAXA8eDISQ.png)
+*Embedding of all 37,000 books on Wikipedia*
 
 (TSNE is a manifold learning technique which means that it tries to map high-dimensional data to a lower-dimensional manifold, creating an embedding that attempts to maintain local structure within the data. It’s almost exclusively used for visualization because the output is stochastic and it does not support transforming new data. An up and coming alternative is [Uniform Manifold Approximation and Projection, UMAP,](https://github.com/lmcinnes/umap) which is much faster and does support transform new data into the embedding space).
 
 By itself this isn’t very useful, but it can be insightful once we start coloring it based on different book characteristics.
 
-![](https://cdn-images-1.medium.com/max/1600/1*jYu2qwF4w3h7Xa93B05Ocw.png)Embeddings Colored by Genre
+![](https://cdn-images-1.medium.com/max/1600/1*jYu2qwF4w3h7Xa93B05Ocw.png)
+*Embeddings Colored by Genre*
 
 We can clearly see groupings of books belonging to the same genre. It’s not perfect, but it’s still impressive that we can represent all books on Wikipedia using just 2 numbers that still capture the variability between genres.
 
@@ -145,7 +145,8 @@ The book example (full article coming soon) shows the value of neural network em
 
 The problem with static graphs is that we can’t really explore the data and investigate groupings or relationships between variables. To solve this problem, TensorFlow developed [projector](https://projector.tensorflow.org), an online application that lets us visualize and interact with embeddings. I’ll release an article on how to use this tool shortly, but for now, here’s the results:
 
-![](https://cdn-images-1.medium.com/max/1600/1*zhlXuzV2kI2V2qJ5M3uPPg.gif)Interactive Exploration of Book Embeddings using projector
+![](https://cdn-images-1.medium.com/max/1600/1*zhlXuzV2kI2V2qJ5M3uPPg.gif)
+*Interactive Exploration of Book Embeddings using projector*
 
 * * *
 
