@@ -1,6 +1,9 @@
 ---
 published: false
 title: Neural Network Embeddings Explained
+categories:
+  - deep learning
+  - embeddings
 ---
 ## How deep learning can represent _War and Peace_ as a vector
 
