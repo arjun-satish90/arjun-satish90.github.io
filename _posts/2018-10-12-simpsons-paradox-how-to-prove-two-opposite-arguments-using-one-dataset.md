@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "Simpson’s Paradox: How to Prove Opposite Arguments with the Same\_Data"
 categories:
   - statistics
