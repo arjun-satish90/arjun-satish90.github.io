@@ -1,6 +1,9 @@
 ---
 published: false
 title: "Simpson’s Paradox: How to Prove Opposite Arguments with the Same\_Data"
+categories:
+  - statistics
+  - data science
 ---
 ## Understanding a statistical phenomenon and the importance of asking why
 
