@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Building a Recommendation System Using Neural Network Embeddings
 ---
 ## How to use deep learning and Wikipedia to create a book recommendation system
