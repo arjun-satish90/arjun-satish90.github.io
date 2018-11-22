@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: My Weaknesses as a Data Scientist
 categories:
   - data science
