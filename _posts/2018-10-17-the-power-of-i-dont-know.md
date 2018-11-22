@@ -1,9 +1,9 @@
-* * *
-
-![](https://cdn-images-1.medium.com/max/2000/1*jgdyxXeGzkPRknN0LOWhJQ.jpeg)([Source](https://www.pexels.com/photo/silhouette-of-trees-at-night-131174/))
-
-# The Power of I Don’t Know
-
+---
+published: false
+title: "The Power of I Don’t\_Know"
+categories:
+  - thoughts
+---
 ## Intellectual humility is not a weakness but a strength
 
 The phrase “I don’t know” has almost disappeared from our discourse. From the job applicant who must claim to have mastered 100 different skills to politicians who need to have a confident opinion on every news event, the modern world does not encourage people to admit when they lack knowledge or skills. However, by refusing to acknowledge our ignorance, we limit our chances for personal improvement. Saying “I don’t know” — practicing intellectual humility — and adopting a growth mindset are powerful means for becoming smarter and more skilled individuals.
@@ -13,6 +13,8 @@ The phrase “I don’t know” has almost disappeared from our discourse. From 
 ### The Dangers of Certainty
 
 When we are young, we refuse to say we don’t know something because we’re ignorant of our own ignorance. We simply have no conception that the world extends beyond our sphere of knowledge, an idea that should be — but often isn’t — disproven in school. Although we are naturally curious — think about the endless “why?” questions asked by children — school teaches us there are a set of certain facts about the world to memorize, focusing on the limited amount of current human knowledge rather than discussing how we continually discover new knowledge that reveals our past beliefs to be incorrect. Moreover, we’re taught to not question these facts, and if we don’t know one of them, the best response is to guess!
+
+<!--more-->
 
 Once the curiosity has been driven out of us in school and we go into the workforce, we’re even less likely to say “I don’t know”. We perceive a lack of absolute confidence, especially in our leaders, as a weakness. Despite the uncertainty that comes with living in a complex world, we are afraid to admit when we don’t know something for sure and we therefore don’t expect to see uncertainty expressed by others. From economic statistics such as the jobless rate to election forecasts, we like to see a single number in news stories even when the real answer is a wide range of possibilities (this has been dubbed the [lure of incredible certitude](http://faculty.wcas.northwestern.edu/~cfm754/lure_of_incredible_certitude.pdf)). It’s far more comfortable for someone to feign certainty than admit to the nuance in a real-world situation.
 
