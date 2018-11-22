@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "The Power of I Don’t\_Know"
 categories:
   - thoughts
