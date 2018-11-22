@@ -20,7 +20,8 @@ Once the curiosity has been driven out of us in school and we go into the workfo
 
 When people refuse to admit what they don’t know, [confirmation bias](https://www.sciencedaily.com/terms/confirmation_bias.htm) comes into play as people deliberately seek out evidence that confirms their supposed knowledge and avoid that which might show they don’t know enough to make a rational decision.
 
-![](https://cdn-images-1.medium.com/max/1600/1*L2Stp62lKNwHc4j3UgVi9w.png)Confirmation Bias is caused by an over-confidence in our beliefs. ([Source](https://blog.deming.org/2016/12/countering-confirmation-bias/))
+![](https://cdn-images-1.medium.com/max/1600/1*L2Stp62lKNwHc4j3UgVi9w.png)Confirmation Bias is caused by an over-confidence in our beliefs. 
+*([Source](https://blog.deming.org/2016/12/countering-confirmation-bias/))*
 
 At all ages and level of society, an inability to admit the limits of our expertise is disastrous: personally, I’ve spent way too much time trying to learn new software or techniques on my own rather than admit I was out of my league and seek out help from those with more knowledge. On the national scale, decisions as monumental as that to invade another country (see the [Iraq War](https://en.wikipedia.org/wiki/Rationale_for_the_Iraq_War)) are made because individuals have more confidence than is warranted in their beliefs and refuse to admit there is uncertainty in the situation.
 
@@ -65,7 +66,8 @@ One of the best examples of the power of “I don’t know” is the [entire sci
 
 Within 20 years of this statement, both [quantum mechanics](https://www.pbs.org/transistor/science/info/quantum.html) and [relativity](https://en.wikipedia.org/wiki/General_relativity) would shake the foundations of physics and [lead to](https://www.quora.com/What-are-practical-applications-of-Einsteins-theories) such developments as GPS and [all modern electronics.](https://www.scientificamerican.com/article/everyday-quantum-physics/) As another example, traditional religious beliefs held that the Earth was at the center of the Universe — no question, nothing to debate. Yet, when scientists such as Galileo admitted humanity’s ignorance and started to investigate, they found a much more magnificent and wondrous universe than that offered by any religion.
 
-![](https://cdn-images-1.medium.com/max/2000/0*Har-Wy7lUP6zUTRQ.jpg)What you get when you admit you don’t know but you want to find out. ([Source](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjJt_aO343eAhUJ3lMKHXUnB5QQjhx6BAgBEAM&url=https%3A%2F%2Fwww.dailymotion.com%2Fvideo%2Fx2e2cd1&psig=AOvVaw0kiVU2G39Y5uEw5TYzKVtH&ust=1539874849741944))
+![](https://cdn-images-1.medium.com/max/2000/0*Har-Wy7lUP6zUTRQ.jpg)What you get when you admit you don’t know but you want to find out. 
+*([Source](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjJt_aO343eAhUJ3lMKHXUnB5QQjhx6BAgBEAM&url=https%3A%2F%2Fwww.dailymotion.com%2Fvideo%2Fx2e2cd1&psig=AOvVaw0kiVU2G39Y5uEw5TYzKVtH&ust=1539874849741944))*
 
 Scientists must be well-practiced in [recognizing when they don’t know something](https://www.bloomberg.com/view/articles/2018-08-28/advice-to-researchers-admit-what-you-don-t-know) and figuring out a way to rectify that shortcoming. The best scientists are able to harness natural human curiosity and use it to direct their research efforts. Perhaps no scientist exemplified this better than [Richard Feynman](https://en.wikipedia.org/wiki/Richard_Feynman), the charismatic physicist who was driven to answer questions he personally found interesting because he liked [“finding things out”](https://www.amazon.com/Pleasure-Finding-Things-Out-Richard/dp/0465023959).
 
