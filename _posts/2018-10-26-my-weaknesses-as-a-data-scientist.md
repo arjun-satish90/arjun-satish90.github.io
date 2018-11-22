@@ -1,9 +1,10 @@
-* * *
-
-![](https://cdn-images-1.medium.com/max/2000/1*EYMHa6u7se1BcpB1zAAa3g.jpeg)([Source](https://hiveminer.com/Tags/climbing%2Cstairs))
-
-# My Weaknesses as a Data Scientist
-
+---
+published: false
+title: My Weaknesses as a Data Scientist
+categories:
+  - data science
+  - thoughts
+---
 ## Without recognizing our weak points, we’ll never be able to overcome them
 
 If modern job interviews have taught us anything, it’s that the correct answer to the question “What’s your biggest weakness?” is “I work too hard.” Clearly, it’d be ludicrous to _actually_ talk about our weaknesses, right? Why would we want to mention what we can’t yet do? While job applications and LinkedIn profile pages don’t encourage us to disclose our weak points, [if we never admit our deficiencies](https://medium.com/@williamkoehrsen/the-power-of-i-dont-know-590ab40d1995), then we can’t take the steps to address them.
@@ -22,13 +23,16 @@ With that in mind, I’ve tried to take an objective look at where I am now and 
 *   **Scaling data science**
 *   **Deep learning**
 
+<!--more-->
+
 My purpose in writing this article about my weaknesses in data science is threefold. First, I genuinely care about getting better so I need to admit my weak points. By outlining my deficiencies and how I can address them, my objective is to keep myself motivated to follow through on my learning goals.
 
 Second, I hope to encourage others to think about what skills they might not know and how they can work on acquiring them. You don’t have to write your own article disclosing what you don’t know, but taking a few moments to consider the question can pay off if you find a skill to work on.
 
 Finally, I want to show you don’t need to know everything to be a successful data scientist. There are an almost unlimited number of data science/ machine learning topics, but a limited amount you can actually know. Despite what unrealistic job applications proclaim, you don’t need complete knowledge of every algorithm (or 5–10 years of experience) to be a practicing data scientist. Often, I hear from beginners who are overwhelmed by the number of topics they think they must learn and my advice is always the same: start with the [basics](https://www-bcf.usc.edu/~gareth/ISL/) and understand you don’t need to know it all!
 
-![](https://cdn-images-1.medium.com/max/1600/1*XvTjk_wH6cWY-6INTss8ug.png)Even this is probably an exaggeration! ([Source](http://businessoverbroadway.com/data-science-skills-and-the-improbable-unicorn))
+![](https://cdn-images-1.medium.com/max/1600/1*XvTjk_wH6cWY-6INTss8ug.png)Even this is probably an exaggeration! 
+*([Source](http://businessoverbroadway.com/data-science-skills-and-the-improbable-unicorn))*
 
 * * *
 
@@ -61,7 +65,8 @@ Thinking like a software engineer requires a change in mindset, but adopting the
 
 When I’m not writing code that is designed to be part of a larger library, I still try to use some of these methods. Writing unit tests for a data analysis may seem strange to a data scientist, but it’s great practice for when you actually need to develop tests to ensure your code works as intended. Also, there are many [linting tools](http://flake8.pycqa.org/en/latest/) that check your code follows a coding style (I still struggle with the no spaces around keyword arguments).
 
-![](https://cdn-images-1.medium.com/max/1600/1*HQ129JeJFrfvCq0AUQqeiw.png)Always things to improve (using [pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) in Sublime Text 3).
+![](https://cdn-images-1.medium.com/max/1600/1*HQ129JeJFrfvCq0AUQqeiw.png)
+*Always things to improve (using [pylint](https://github.com/SublimeLinter/SublimeLinter-pylint) in Sublime Text 3).*
 
 There are many other aspects of computer science I’d like to work on such as writing efficient implementations rather than brute force methods (for example using [vectorization instead of looping](https://engineering.upside.com/a-beginners-guide-to-optimizing-pandas-code-for-speed-c09ef2c6a4d6)). However, it’s also important to realize you can’t change everything all at once, which is why I’m focusing on a few practices and making them [_habits_](https://en.wikipedia.org/wiki/The_Power_of_Habit) built into my workflows.
 
@@ -97,7 +102,8 @@ Although artificial intelligence has gone through [periods of boom and bust](htt
 
 Unlike with software engineering or scaling data science, my current position doesn’t require any deep learning: traditional machine learning techniques (e.g. [Random Forest](https://medium.com/@williamkoehrsen/random-forest-simple-explanation-377895a60d2d)) have been more than capable of solving all our customer’s problems. However, I recognize that not every dataset will be structured in neat rows and columns and neural networks are the best option (at the moment) to take on projects with text or images. I could keep [exploiting](https://conceptually.org/concepts/explore-or-exploit/) my current skills on the problems I’ve always solved, but, especially early in my career, exploring topics is an exercise with great potential value.
 
-![](https://cdn-images-1.medium.com/max/1600/1*zYoLb1EXIX5ntQpa0-xS1g.png)The [Explore/Exploit Tradeoff](https://en.wikipedia.org/wiki/Multi-armed_bandit) applies to reinforcement learning and your life! ([Source](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjt3ZfW7qTeAhXMna0KHSslD0EQjhx6BAgBEAM&url=https%3A%2F%2Fconversionxl.com%2Fblog%2Fbandit-tests%2F&psig=AOvVaw208AnXDQBZkFjhH-HE1xI9&ust=1540669324867342))
+![](https://cdn-images-1.medium.com/max/1600/1*zYoLb1EXIX5ntQpa0-xS1g.png)The [Explore/Exploit Tradeoff](https://en.wikipedia.org/wiki/Multi-armed_bandit) applies to reinforcement learning and your life! 
+*([Source](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjt3ZfW7qTeAhXMna0KHSslD0EQjhx6BAgBEAM&url=https%3A%2F%2Fconversionxl.com%2Fblog%2Fbandit-tests%2F&psig=AOvVaw208AnXDQBZkFjhH-HE1xI9&ust=1540669324867342))*
 
 There are many different subfields within deep learning and it’s hard to figure out which methods or libraries will eventually win out. Nonetheless, I think that a familiarity with the field and being confident implementing some of the techniques will allow one to approach a wider range of problems. Given that solving problems is what drove me to data science, adding the tools of deep learning to my toolbox is a worthwhile investment.
 
@@ -125,7 +131,8 @@ Finally, one of the most effective ways to learn a topic is _by teaching it to o
 
 > Teaching is one of the best ways to learn, and I plan on making it an integral part of my quest to study deep learning.
 
-![](https://cdn-images-1.medium.com/max/1600/1*SVEQbiPLujaSkLGU0nxyDw.jpeg)From personal experience, this looks accurate ([Source](https://nikkimantyla.wordpress.com/2011/07/29/the-best-way-to-learn-is-to-teach/))
+![](https://cdn-images-1.medium.com/max/1600/1*SVEQbiPLujaSkLGU0nxyDw.jpeg)From personal experience, this looks accurate 
+*([Source](https://nikkimantyla.wordpress.com/2011/07/29/the-best-way-to-learn-is-to-teach/))*
 
 * * *
 
