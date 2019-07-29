@@ -1,8 +1,15 @@
+---
+published: true
+title: Transfer Learning with Convolutional Neural Networks in PyTorch
+date: 2018-11-26
+categories:
+  - Machine Learning
+  - Neural Networks
+---
 * * *
 
-![](https://cdn-images-1.medium.com/max/2000/1*niPDCrom9F0lrdFa3LrBqA.jpeg)([Source](https://www.flickr.com/photos/pinks2000/19160002254))
-
-# Transfer Learning with Convolutional Neural Networks in PyTorch
+![](https://cdn-images-1.medium.com/max/2000/1*niPDCrom9F0lrdFa3LrBqA.jpeg)
+*([Source](https://www.flickr.com/photos/pinks2000/19160002254))*
 
 ## How to use a pre-trained convolutional neural network for object recognition with PyTorch
 
@@ -14,7 +21,8 @@ Since the best way to learn a new technology is by using it to solve a problem, 
 
 The complete code for this project is available as a [Jupyter Notebook on GitHub](https://github.com/WillKoehrsen/pytorch_challenge/blob/master/Transfer%20Learning%20in%20PyTorch.ipynb). This project was born out of my participation in the [Udacity PyTorch scholarship challenge](https://www.udacity.com/facebook-pytorch-scholarship).
 
-![](https://cdn-images-1.medium.com/max/1600/1*WFzHpV_Q6GQ_ybInr4PnCA.png)Prediction from trained network
+![](https://cdn-images-1.medium.com/max/1600/1*WFzHpV_Q6GQ_ybInr4PnCA.png)
+*Prediction from trained network*
 
 <!--more-->
 
@@ -28,7 +36,8 @@ The basic premise of [transfer learning](https://machinelearningmastery.com/tran
 
 Thus, we can use a network trained on unrelated categories in a massive dataset (usually Imagenet) and apply it to our own problem because there are universal, low-level features shared between images. The images in the Caltech 101 dataset are very similar to those in the [Imagenet dataset](http://www.image-net.org/) and the knowledge a model learns on Imagenet should easily transfer to this task.
 
-![](https://cdn-images-1.medium.com/max/1600/1*ZkPBqU8vx2vAgcLpz9pi5g.jpeg)Idea behind Transfer Learning ([source](https://www.slideshare.net/xavigiro/transfer-learning-d2l4-insightdcu-machine-learning-workshop-2017)).
+![](https://cdn-images-1.medium.com/max/1600/1*ZkPBqU8vx2vAgcLpz9pi5g.jpeg)
+*Idea behind Transfer Learning ([source](https://www.slideshare.net/xavigiro/transfer-learning-d2l4-insightdcu-machine-learning-workshop-2017)).*
 
 Following is the general outline for transfer learning for object recognition:
 
@@ -46,7 +55,8 @@ This [approach has proven successful for a wide range of domains](http://ruder.i
 
 With all data science problems, formatting the data correctly will determine the success or failure of the project. Fortunately, the Caltech 101 dataset images are clean and stored in the correct format. If we correctly set up the data directories, PyTorch makes it simple to associate the correct labels with each class. I separated the data into _training, validation, and testing_ sets with a 50%, 25%, 25% split and then structured the directories as follows:
 
-<pre name="8644" id="8644" class="graf graf--pre graf-after--p">/datadir
+```
+/datadir
     /train
         /class1
         /class2
@@ -61,17 +71,20 @@ With all data science problems, formatting the data correctly will determine the
         /class1
         /class2
         .
-        .</pre>
+        .
+```
 
 The number of training images by classes is below (I use the terms classes and categories interchangeably):
 
-![](https://cdn-images-1.medium.com/max/2000/1*H6FG-Tw0Ashd9_BuGxekNg.png)Number of training images by category.
+![](https://cdn-images-1.medium.com/max/2000/1*H6FG-Tw0Ashd9_BuGxekNg.png)
+*Number of training images by category.*
 
 We expect the model to do better on classes with _more_ examples because it can better learn to map features to labels. To deal with the limited number of training examples we’ll use _data augmentation_ during training (more later).
 
 As another bit of data exploration, we can also look at the size distribution.
 
-![](https://cdn-images-1.medium.com/max/1600/1*NNBg34r4lVD3rIYifVEd-Q.png)Distribution of average image sizes (in pixels) by category.
+![](https://cdn-images-1.medium.com/max/1600/1*NNBg34r4lVD3rIYifVEd-Q.png)
+*Distribution of average image sizes (in pixels) by category.*
 
 Imagenet models need an input size of 224 x 224 so one of the _preprocessing_ steps will be to resize the images. Preprocessing is also where we will implement data augmentation for our training data.
 
@@ -81,7 +94,8 @@ The idea of [data augmentation](http://cs231n.stanford.edu/reports/2017/pdfs/300
 
 An elephant is still an elephant no matter which way it’s facing!
 
-![](https://cdn-images-1.medium.com/max/1600/1*nyHJUPw_2UOmRqGQ5mAzkg.png)Image transformations of training data.
+![](https://cdn-images-1.medium.com/max/1600/1*nyHJUPw_2UOmRqGQ5mAzkg.png)
+*Image transformations of training data.*
 
 Augmentation is generally only done during training (although [test time augmentation is possible in the](https://blog.floydhub.com/ten-techniques-from-fast-ai/) `[fast.ai](https://blog.floydhub.com/ten-techniques-from-fast-ai/)` library). Each epoch — one iteration through all the training images — a different random transformation is applied to each training image. This means that if we iterate through the data 20 times, our model will see 20 slightly different versions of each image. The overall result should be a model that learns the objects themselves and not how they are presented or artifacts in the image.
 
@@ -100,20 +114,22 @@ The end result of passing through these transforms are tensors that can go into 
 
 First up, we define the training and validation transformations:
 
-<iframe width="700" height="250" src="/media/23990c80c8916fc59fa804974ea7c94d?postId=dd09190245ce" data-media-id="23990c80c8916fc59fa804974ea7c94d" allowfullscreen="" frameborder="0"></iframe>
+<script src="https://gist.github.com/WillKoehrsen/d5de7d61e9cc2971c5aed1763f6e1ff3.js"></script>
 
 Then, we create `datasets` and `DataLoaders` . By using `datasets.ImageFolder` to make a dataset, PyTorch will automatically associate images with the correct labels provided our directory is set up as above. The datasets are then passed to a `DataLoader` , an iterator that yield batches of images and labels.
 
-<iframe width="700" height="250" src="/media/ca935a69230822516efd2c1c37f27888?postId=dd09190245ce" data-media-id="ca935a69230822516efd2c1c37f27888" allowfullscreen="" frameborder="0"></iframe>
+<script src="https://gist.github.com/WillKoehrsen/9e7a77eb68c6c0d4a881668ba908456e.js" charset="utf-8"></script>
 
 We can see the iterative behavior of the `DataLoader` using the following:
 
-<pre name="5976" id="5976" class="graf graf--pre graf-after--p"># Iterate through the dataloader once
+```
+# Iterate through the dataloader once
 trainiter = iter(dataloaders['train'])
 features, labels = next(trainiter)
-features.shape, labels.shape</pre>
+features.shape, labels.shape
 
-<pre name="2ccf" id="2ccf" class="graf graf--pre graf-after--pre">**(torch.Size([128, 3, 224, 224]), torch.Size([128]))**</pre>
+(torch.Size([128, 3, 224, 224]), torch.Size([128]))
+```
 
 The shape of a batch is `(batch_size, color_channels, height, width)`. During training, validation, and eventually testing, we’ll iterate through the `DataLoaders`, with one pass through the complete dataset comprising one epoch. Every epoch, the training `DataLoader` will apply a slightly different random transformation to the images for training data augmentation.
 
@@ -123,7 +139,8 @@ The shape of a batch is `(batch_size, color_channels, height, width)`. During tr
 
 With our data in shape, we next turn our attention to the model. For this, we’ll use a pre-trained convolutional neural network. PyTorch has a number of models that have already been trained on millions of images from 1000 classes in [Imagenet](http://www.image-net.org/). The complete list of models can be [seen here](https://pytorch.org/docs/stable/torchvision/models.html). The performance of these models on Imagenet is shown below:
 
-![](https://cdn-images-1.medium.com/max/1600/1*0W310-cMNHPWjErqPuGXpw.png)Pretrained models in PyTorch and performance on Imagenet ([Source](https://pytorch.org/docs/stable/torchvision/models.html)).
+![](https://cdn-images-1.medium.com/max/1600/1*0W310-cMNHPWjErqPuGXpw.png)
+*Pretrained models in PyTorch and performance on Imagenet ([Source](https://pytorch.org/docs/stable/torchvision/models.html)).*
 
 For this implementation, we’ll be using the `VGG-16`. Although it didn’t record the lowest error, I found it worked well for the task and was quicker to train than other models. The process to use a pre-trained model is well-established:
 
@@ -134,14 +151,18 @@ For this implementation, we’ll be using the `VGG-16`. Although it didn’t rec
 
 Loading in a pre-trained model in PyTorch is simple:
 
-<pre name="3f19" id="3f19" class="graf graf--pre graf-after--p">from torchvision import models
-model = model.vgg16(pretrained=True)</pre>
+```
+from torchvision import models
+model = model.vgg16(pretrained=True)
+```
 
 This model has over 130 million parameters, but we’ll train only the very last few fully-connected layers. Initially, we freeze all of the model’s weights:
 
-<pre name="a916" id="a916" class="graf graf--pre graf-after--p"># Freeze model weights
+```
+# Freeze model weights
 for param in model.parameters():
-    param.requires_grad = False</pre>
+    param.requires_grad = False
+```
 
 Then, we add on our own custom classifier with the following layers:
 
@@ -149,22 +170,25 @@ Then, we add on our own custom classifier with the following layers:
 *   Dropout with 40% chance of dropping
 *   Fully connected with log softmax output, shape = (256, n_classes)
 
-<pre name="3e2d" id="3e2d" class="graf graf--pre graf-after--li">import torch.nn as nn</pre>
+```
 
-<pre name="f2f9" id="f2f9" class="graf graf--pre graf-after--pre"># Add on classifier
+import torch.nn as nn
+# Add on classifier
 model.classifier[6] = nn.Sequential(
                       nn.Linear(n_inputs, 256),
                       nn.ReLU(),
                       nn.Dropout(0.4),
                       nn.Linear(256, n_classes),
-                      nn.LogSoftmax(dim=1))</pre>
+                      nn.LogSoftmax(dim=1))
+```
 
 When the extra layers are added to the model, they are set to trainable by default ( `require_grad=True` ). For the VGG-16, we’re only changing the very last original fully-connected layer. All of the weights in the convolutional layers and the the first 5 fully-connected layers are not trainable.
 
-<pre name="d763" id="d763" class="graf graf--pre graf-after--p"># Only training classifier[6]
-model.classifier</pre>
+```
+# Only training classifier[6]
+model.classifier
 
-<pre name="44f3" id="44f3" class="graf graf--pre graf-after--pre">**Sequential(
+Sequential(
   (0): Linear(in_features=25088, out_features=4096, bias=True)
   (1): ReLU(inplace)
   (2): Dropout(p=0.5)
@@ -178,28 +202,35 @@ model.classifier</pre>
     (3): Linear(in_features=256, out_features=100, bias=True)
     (4): LogSoftmax()
   )
-)**</pre>
+)
+```
 
 The final outputs from the network are _log probabilities_ for each of the 100 classes in our dataset. The model has a total of 135 million parameters, of which just over 1 million will be trained.
 
-<pre name="669f" id="669f" class="graf graf--pre graf-after--p"># Find total parameters and trainable parameters
+```
+# Find total parameters and trainable parameters
 total_params = sum(p.numel() for p in model.parameters())
 print(f'{total_params:,} total parameters.')
 total_trainable_params = sum(
     p.numel() for p in model.parameters() if p.requires_grad)
-print(f'{total_trainable_params:,} training parameters.')</pre>
+print(f'{total_trainable_params:,} training parameters.')
+```
 
-<pre name="c22d" id="c22d" class="graf graf--pre graf-after--pre">**135,335,076 total parameters.
-1,074,532 training parameters.**</pre>
+```
+135,335,076 total parameters.
+1,074,532 training parameters.
+```
 
 #### Moving Model to GPU(s)
 
 One of the best aspects of [PyTorch is the ease of moving different parts of a model to one or more gpus](https://pytorch.org/docs/stable/notes/cuda.html) so you can [make full use of your hardware](https://medium.com/@colinshaw_36798/fully-utilizing-your-deep-learning-gpus-61ee7acd3e57). Since I’m using 2 gpus for training, I first move the model to `cuda` and then create a `DataParallel` model distributed over the gpus:
 
-<pre name="9af5" id="9af5" class="graf graf--pre graf-after--p"># Move to gpu
+```
+# Move to gpu
 model = model.to('cuda')
 # Distribute across 2 gpus
-model = nn.DataParallel(model)</pre>
+model = nn.DataParallel(model)
+```
 
 (This notebook should be run on a gpu to complete in a reasonable amount of time. The speedup over a cpu can easily by 10x or more.)
 
@@ -213,11 +244,13 @@ The [optimizer is Adam](https://machinelearningmastery.com/adam-optimization-alg
 
 The loss and optimizer are initialized as follows:
 
-<pre name="b986" id="b986" class="graf graf--pre graf-after--p">from torch import optim</pre>
+```
+from torch import optim
 
-<pre name="4f11" id="4f11" class="graf graf--pre graf-after--pre"># Loss and optimizer
+# Loss and optimizer
 criteration = nn.NLLLoss()
-optimizer = optim.Adam(model.parameters())</pre>
+optimizer = optim.Adam(model.parameters())
+```
 
 With the pre-trained model, the custom classifier, the loss, the optimizer, and most importantly, the data, we’re ready for training.
 
@@ -229,7 +262,7 @@ Model training in PyTorch is a little more hands-on than in Keras because we hav
 
 I’d encourage you to look at the [notebook](https://github.com/WillKoehrsen/pytorch_challenge/blob/master/Transfer%20Learning%20in%20PyTorch.ipynb) for the complete training details, but the basic pseudo-code is as follows:
 
-<iframe width="700" height="250" src="/media/282d4e5e48dc427a8dc309006948f4d8?postId=dd09190245ce" data-media-id="282d4e5e48dc427a8dc309006948f4d8" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/70a9819ad855bee07d00a7980c0d6e18.js" allowfullscreen="" frameborder="0"></script>
 
 We can continue to iterate through the data until we reach a given number of epochs. However, one problem with this approach is that our model will eventually start _overfitting to the training data_. To prevent this, we use our validation data and _early stopping_.
 
@@ -241,11 +274,13 @@ We implement early stopping by iterating through the validation `DataLoader` at 
 
 Again, the complete code is in the notebook, but pseudo-code is:
 
-<iframe width="700" height="250" src="/media/6aa7b0c84ee93aba08e21137a023bbd6?postId=dd09190245ce" data-media-id="6aa7b0c84ee93aba08e21137a023bbd6" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/4be9d8b7284a13228d10756ce2158aeb.js" data-media-id="6aa7b0c84ee93aba08e21137a023bbd6" allowfullscreen="" frameborder="0"></script>
 
 To see the benefits of early stopping, we can look at the training curves showing the training and validation losses and accuracy:
 
-![](https://cdn-images-1.medium.com/max/1200/1*xega4-IjqB_YJq_u0aHuzA.png)![](https://cdn-images-1.medium.com/max/1200/1*Gx-V-eTwCbVF6O6fXdjsPA.png)Negative log likelihood and accuracy training curves
+![](https://cdn-images-1.medium.com/max/1200/1*xega4-IjqB_YJq_u0aHuzA.png)
+![](https://cdn-images-1.medium.com/max/1200/1*Gx-V-eTwCbVF6O6fXdjsPA.png)
+*Negative log likelihood and accuracy training curves*
 
 As expected, the training loss only continues to decrease with further training. The validation loss, on the other hand, reaches a minimum and plateaus. At a certain epoch, there is no return (or even a negative return) to further training. Our model will only start to memorize the training data and will not be able to generalize to testing data.
 
@@ -261,23 +296,27 @@ In the notebook I take care of some boring — but necessary — details
 
 Predicting with a trained model is pretty simple. We use the same syntax as for training and validation:
 
-<pre name="6b0a" id="6b0a" class="graf graf--pre graf-after--p">for data, targets in testloader:
+```
+for data, targets in testloader:
     log_ps = model(data)
     # Convert to probabilities
-    ps = torch.exp(log_ps)</pre>
+    ps = torch.exp(log_ps)
 
-<pre name="eabe" id="eabe" class="graf graf--pre graf-after--pre">ps.shape()</pre>
+ps.shape()
 
-<pre name="f9bd" id="f9bd" class="graf graf--pre graf-after--pre">**(128, 100)**</pre>
+(128, 100)
+```
 
 The shape of our probabilities are ( `batch_size` , `n_classes` ) because we have a probability for every class. We can find the accuracy by finding the highest probability for each example and compare these to the labels:
 
-<pre name="0add" id="0add" class="graf graf--pre graf-after--p"># Find predictions and correct
+```
+# Find predictions and correct
 pred = torch.max(ps, dim=1)
-equals = pred == targets</pre>
+equals = pred == targets
 
-<pre name="ffbd" id="ffbd" class="graf graf--pre graf-after--pre"># Calculate accuracy
-accuracy = torch.mean(equals)</pre>
+# Calculate accuracy
+accuracy = torch.mean(equals)
+```
 
 When [diagnosing a network](https://www.coursera.org/lecture/machine-learning/model-selection-and-train-validation-test-sets-QGKbr) used for object recognition, it can be helpful to look at both overall performance on the test set and individual predictions.
 
@@ -286,6 +325,7 @@ When [diagnosing a network](https://www.coursera.org/lecture/machine-learning/mo
 Here are two predictions the model nails:
 
 ![](https://cdn-images-1.medium.com/max/2000/1*RWI7Ct5JSUZz5gkFyD6Ntg.png)![](https://cdn-images-1.medium.com/max/2000/1*QWozitnzhJz4wFFrQsAVZw.png)
+*Model Example Predictions*
 
 These are pretty easy, so I’m glad the model has no trouble!
 
@@ -295,16 +335,20 @@ We don’t just want to focus on the correct predictions and we’ll take a look
 
 Convolutional neural networks for object recognition are generally measured in terms of [topk accuracy](https://stats.stackexchange.com/questions/95391/what-is-the-definition-of-top-n-accuracy). This refers to the whether or not the real class was in the k most likely predicted classes. For example, top 5 accuracy is the % the right class was in the 5 highest probability predictions. You can get the topk most likely probabilities and classes from a PyTorch tensor as follows:
 
-<pre name="91fd" id="91fd" class="graf graf--pre graf-after--p">top_5_ps, top_5_classes = ps.topk(5, dim=1)
-top_5_ps.shape</pre>
+```
+top_5_ps, top_5_classes = ps.topk(5, dim=1)
+top_5_ps.shape
 
-<pre name="24de" id="24de" class="graf graf--pre graf-after--pre">**(128, 5)**</pre>
+(128, 5)
+```
 
 Evaluating the model on the entire testing set, we calculate the metrics:
 
-<pre name="b108" id="b108" class="graf graf--pre graf-after--p">**Final test top 1 weighted accuracy = 88.65%
+```
+Final test top 1 weighted accuracy = 88.65%
 Final test top 5 weighted accuracy = 98.00%
-Final test cross entropy per image = 0.3772.**</pre>
+Final test cross entropy per image = 0.3772.
+```
 
 These compare favorably to the near 90% top 1 accuracy on the validation data. **Overall, we conclude our pre-trained model was able to successfully transfer its knowledge from Imagenet to our smaller dataset.**
 
@@ -316,7 +360,10 @@ Although the model does well, there’s likely steps to take which can make it e
 
 Our model isn’t great at identifying crocodiles, so let’s look at some test predictions from this category:
 
-![](https://cdn-images-1.medium.com/max/2000/1*0Iei4WIP-_MzAiPDKRL79g.png)![](https://cdn-images-1.medium.com/max/2000/1*kEmyc_lZ0TWYOgvgLlUsqw.png)![](https://cdn-images-1.medium.com/max/2000/1*CSBH0Ow44MBMmSo-F4tKDA.png)
+![](https://cdn-images-1.medium.com/max/2000/1*0Iei4WIP-_MzAiPDKRL79g.png)![]
+(https://cdn-images-1.medium.com/max/2000/1*kEmyc_lZ0TWYOgvgLlUsqw.png)
+![](https://cdn-images-1.medium.com/max/2000/1*CSBH0Ow44MBMmSo-F4tKDA.png)
+*Model Example Predictions*
 
 Given the subtle distinction between `crocodile` and `crocodile_head` , and the difficulty of the second image, I’d say our model is not entirely unreasonable in these predictions. The ultimate goal in image recognition is to exceed human capabilities, and our model is nearly there!
 

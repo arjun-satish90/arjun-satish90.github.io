@@ -43,3 +43,14 @@ UMAP | PCA
     <iframe src="https://repl.it/@WillKoehrsen/basicpython?lite=true">
     </iframe>
 </div>
+
+## Replacing Code Tags
+
+### Starting
+Find: <pre(.?)>
+Replace: ```\n
+
+#### Ending
+
+Find: </pre(.?)>
+Replace: \n```

@@ -5,8 +5,21 @@ permalink: /about/
 published: true
 ---
 
-Currently I am a data scientist at [Cortex Building Intelligence](https://cortexintel.com) in New York City building tools to help commercial office buildings operate more efficiently with data science. Previously, I was a data scientist at Feature Labs, working on automated feature engineering and solving data science problems for customers. In college at Case Western Reserve University,
+## Current
+
+
+
+* Lead data scientist at [Cortex Building Intelligence](https://cortexintel.com) in New York City
+* Building tools to help commercial office buildings operate more energy efficiently
+
+## Previous
+
+ Previously, I was a data scientist at Feature Labs, working on automated feature engineering and solving data science problems for customers. In college at Case Western Reserve University,
 I was a member of the [EDIFES research team](https://arpa-e.energy.gov/?q=slick-sheet-project/virtual-building-energy-audits) developing a data science platform for virtual energy audits. I'm an avid data science advocate and communicator on [Towards Data Science](http://medium.com/@williamkoehrsen/) where I write about an article per week on data science topics. All my articles are free because I believe in allowing everyone equal access to information.
+
+## Education
+
+
 
 *****
 

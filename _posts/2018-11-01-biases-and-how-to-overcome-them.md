@@ -1,8 +1,10 @@
-* * *
-
+---
+published: true
+title: "Biases and How to Overcome Them"
+categories:
+  - thoughts
+---
 ![](https://cdn-images-1.medium.com/max/2000/1*02wRYcP9ggdT4zVz19pgZQ.jpeg)[(Source)](https://www.pexels.com/photo/gray-stone-near-sea-837932/)
-
-# Overcome Your Biases with Data
 
 ## We’re awful at viewing the world objectively. Data can help.
 
