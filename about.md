@@ -5,8 +5,9 @@ permalink: /about/
 published: true
 ---
 
-Currently I am Data scientist at [Feature Labs](https://www.featurelabs.com/) in Boston, MA working on [automated feature engineering](https://towardsdatascience.com/automated-feature-engineering-in-python-99baf11cc219). Previously, I was a member of the [EDIFES research team](https://arpa-e.energy.gov/?q=slick-sheet-project/virtual-building-energy-audits) at Case Western Reserve University developing a data science platform for virtual energy audits. I'm an avid data science advocate and communicator on [Towards Data Science](http://medium.com/@williamkoehrsen/)
-    
+Currently I am a data scientist at [Cortex Building Intelligence](https://cortexintel.com) in New York City building tools to help commercial office buildings operate more efficiently with data science. Previously, I was a data scientist at Feature Labs, working on automated feature engineering and solving data science problems for customers. In college at Case Western Reserve University,
+I was a member of the [EDIFES research team](https://arpa-e.energy.gov/?q=slick-sheet-project/virtual-building-energy-audits) developing a data science platform for virtual energy audits. I'm an avid data science advocate and communicator on [Towards Data Science](http://medium.com/@williamkoehrsen/) where I write about an article per week on data science topics. All my articles are free because I believe in allowing everyone equal access to information.
+
 *****
 
 ### More Information
@@ -23,7 +24,7 @@ Follow me at a variety of places around the web:
 
 ### Contact me
 
-If you have a data science question or would like to dicuss anything data science related I'm responsive on Twitter or directly at [wjk68@case.edu](mailto:wjk68@case.edu).
+If you have a data science question or would like to dicuss anything data science related I'm responsive on Twitter or directly at [wjk68@case.edu](mailto:wjk68@case.edu). If you do contact me, please remember I'm doing this on a volunteer basis.
 
 *****
 
