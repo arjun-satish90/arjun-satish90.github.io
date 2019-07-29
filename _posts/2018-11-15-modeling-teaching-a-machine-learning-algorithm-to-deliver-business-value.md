@@ -1,8 +1,14 @@
+---
+published: true
+title: "Modeling: Teaching a Machine Learning Algorithm to Deliver Business Value"
+date: 2018-11-15
+categories:
+  - Feature Labs
+  - machine learning
+---
 * * *
 
 ![](https://cdn-images-1.medium.com/max/2000/1*jcXeBFzKpV-GZ0auYf1n0A.png)
-
-# Modeling: Teaching a Machine Learning Algorithm to Deliver Business Value
 
 ## How to train, tune, and validate a machine learning model
 
@@ -21,7 +27,8 @@ These articles cover the concepts and a full implementation as applied to predic
 
 The outputs of [prediction](https://medium.com/@williamkoehrsen/prediction-engineering-how-to-set-up-your-machine-learning-problem-b3b8f622683b) and [feature engineering](https://towardsdatascience.com/feature-engineering-what-powers-machine-learning-93ab191bcc2d) are a set of _label times_, historical examples of what we want to predict, and _features_, predictor variables used to train a model to predict the label. The process of modeling means training a machine learning algorithm to predict the labels from the features, tuning it for the business need, and validating it on holdout data.
 
-![](https://cdn-images-1.medium.com/max/2000/1*bFwr7NuvMWxhnFoi2fB2vQ.png)Inputs and outputs of the modeling process.
+![](https://cdn-images-1.medium.com/max/2000/1*bFwr7NuvMWxhnFoi2fB2vQ.png)
+*Inputs and outputs of the modeling process.*
 
 The output from modeling is a trained model that can be used for _inference_, making predictions on new data points.
 

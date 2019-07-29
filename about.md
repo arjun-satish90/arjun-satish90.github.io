@@ -1,25 +1,53 @@
 ---
 layout: page
-title: About
+title: Who Am I
 permalink: /about/
 published: true
 ---
 
+__Mission statement__: Make the greatest possible positive social impact using data science. I believe in
+helping others around you propser, whether through working a socially benefical career, writing
+free data science articles to educate others, or volunteering in one's community. We all have choices to make,
+and I've decided to devote my career to trying to improve human sustainability, which I think can be done most effectively as a data scientist working in the energy sector.
+
+# Experience
+
 ## Current
-
-
 
 * Lead data scientist at [Cortex Building Intelligence](https://cortexintel.com) in New York City
 * Building tools to help commercial office buildings operate more energy efficiently
+* Developed and deployed end-to-end machine learning pipelines currently running in production
 
 ## Previous
+* Lead data scientist at Feature Labs, working on automated feature engineering
+* Solved custom data science problems
 
- Previously, I was a data scientist at Feature Labs, working on automated feature engineering and solving data science problems for customers. In college at Case Western Reserve University,
-I was a member of the [EDIFES research team](https://arpa-e.energy.gov/?q=slick-sheet-project/virtual-building-energy-audits) developing a data science platform for virtual energy audits. I'm an avid data science advocate and communicator on [Towards Data Science](http://medium.com/@williamkoehrsen/) where I write about an article per week on data science topics. All my articles are free because I believe in allowing everyone equal access to information.
+## Research
+* Former member of the [EDIFES research team](https://arpa-e.energy.gov/?q=slick-sheet-project/virtual-building-energy-audits) at Case Western Reserve University developing a data science platform for virtual energy audits
 
-## Education
+## Writing
 
+* Avid data science advocate and communicator on [Towards Data Science](http://medium.com/@williamkoehrsen/)
+* 100,000 monthly readers (25,000 subscribers)
+* Articles are always free because I believe in allowing everyone equal access to information!
 
+*****
+
+# Education
+## Case Western Reserve University, Cleveland, OH, August 2014-May 2018
+* Bachelor of Science in Mechanical Engineering
+* Minor in Applied Data Science
+
+## Georgia Tech    Expected Graduation: May 2022
+* Masters of Science in Computer Science (Online)
+
+## Udacity
+* Machine Learning Engineer Nanodegree
+* Data Analyst Nanodegree
+
+## Coursera
+* Deep Learning Specialization
+* Machine Learning Specialization
 
 *****
 
