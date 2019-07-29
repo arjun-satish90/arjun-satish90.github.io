@@ -14,7 +14,9 @@ Since the best way to learn a new technology is by using it to solve a problem, 
 
 The complete code for this project is available as a [Jupyter Notebook on GitHub](https://github.com/WillKoehrsen/pytorch_challenge/blob/master/Transfer%20Learning%20in%20PyTorch.ipynb). This project was born out of my participation in the [Udacity PyTorch scholarship challenge](https://www.udacity.com/facebook-pytorch-scholarship).
 
-![](https://cdn-images-1.medium.com/max/1600/1*WFzHpV_Q6GQ_ybInr4PnCA.png)Predicted from trained network
+![](https://cdn-images-1.medium.com/max/1600/1*WFzHpV_Q6GQ_ybInr4PnCA.png)Prediction from trained network
+
+<!--more-->
 
 * * *
 
@@ -151,10 +153,10 @@ Then, we add on our own custom classifier with the following layers:
 
 <pre name="f2f9" id="f2f9" class="graf graf--pre graf-after--pre"># Add on classifier
 model.classifier[6] = nn.Sequential(
-                      nn.Linear(n_inputs, 256), 
-                      nn.ReLU(), 
+                      nn.Linear(n_inputs, 256),
+                      nn.ReLU(),
                       nn.Dropout(0.4),
-                      nn.Linear(256, n_classes),                   
+                      nn.Linear(256, n_classes),
                       nn.LogSoftmax(dim=1))</pre>
 
 When the extra layers are added to the model, they are set to trainable by default ( `require_grad=True` ). For the VGG-16, we’re only changing the very last original fully-connected layer. All of the weights in the convolutional layers and the the first 5 fully-connected layers are not trainable.
