@@ -1,8 +1,14 @@
+---
+published: true
+title: "How to Create Value with Machine Learning"
+date: 2018-11-07
+categories:
+  - Feature Labs
+  - machine learning
+---
 * * *
 
 ![](https://cdn-images-1.medium.com/max/2000/1*3U7P2LcWYLC8xdZ42VFQYw.png)
-
-# How to Create Value with Machine Learning
 
 ## A General-Purpose Framework for Defining and Solving Meaningful Problems in 3 Steps
 
@@ -32,7 +38,10 @@ The general machine learning framework is outlined below:
 2.  **Feature Engineering:** Extract predictor variables — features — from the raw data for each of the labels
 3.  **Modeling:** Train a machine learning model on the features, tune for the business need, and validate predictions before deploying to new data
 
-![](https://cdn-images-1.medium.com/max/2000/0*2URnrRp5Gp-oAwJD)_A general-purpose framework for defining and solving meaningful problems with machine learning_
+![](https://cdn-images-1.medium.com/max/2000/0*2URnrRp5Gp-oAwJD)
+_A general-purpose framework for defining and solving meaningful problems with machine learning_
+
+<!--more-->
 
 We’ll walk through the basics of each step as well as how to implement them in code. The complete project is available as [Jupyter Notebooks on GitHub](https://github.com/Featuretools/predicting-customer-churn). (Full disclosure: I work for Feature Labs, a startup developing tooling, including [Featuretools](https://github.com/Featuretools/featuretools), for solving problems with machine learning. All of the work documented here was completed with open-source tools and data.)
 
@@ -68,7 +77,8 @@ Look for the following posts (or check out the [GitHub repository](https://githu
 
 We’ll see how to fill in the details with existing data science tools and how to change the prediction problem without rewriting the complete pipeline. By the end, we’ll have an effective model for predicting churn that is tuned to satisfy the business requirement.
 
-![](https://cdn-images-1.medium.com/max/1600/1*7Fns1F6xvVlY8JyAlYamNw.png)Precision-recall curve for model tuned to business need.
+![](https://cdn-images-1.medium.com/max/1600/1*7Fns1F6xvVlY8JyAlYamNw.png)
+*Precision-recall curve for model tuned to business need.*
 
 Through these articles, we’ll see an approach to machine learning that lets us rapidly build solutions for multiple prediction problems. The next time your boss changes the problem parameters, you’ll be able to have a new solution up and running with only a few lines of changes to the code.
 

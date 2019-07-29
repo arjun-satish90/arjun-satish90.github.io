@@ -1,8 +1,15 @@
+---
+published: true
+title: "Feature Engineering: What Powers Machine Learning"
+date: 2018-11-12
+categories:
+  - Feature Labs
+  - machine learning
+  - feature engineering
+---
 * * *
 
 ![](https://cdn-images-1.medium.com/max/2000/1*K6ctE0RZme0cqMtknrxq8A.png)
-
-# Feature Engineering: What Powers Machine Learning
 
 ## How to Extract Features from Raw Data for Machine Learning
 
@@ -19,13 +26,16 @@ These articles cover the concepts and a full implementation as applied to predic
 
 ### Feature Engineering
 
-It’s often said that “[data is the fuel of machine learning](https://www.salon.com/2018/11/04/why-data-is-the-new-oil-what-we-mean-when-we-talk-about-deep-learning/).” This isn’t quite true: data is like the _crude oil_ of machine learning which means it has to be refined into _features _— predictor variables — to be useful for training a model. Without relevant features, you can’t train an accurate model, no matter how complex the machine learning algorithm. The process of extracting features from a raw dataset is called [_feature engineering_](https://en.wikipedia.org/wiki/Feature_engineering)_._
+It’s often said that “[data is the fuel of machine learning](https://www.salon.com/2018/11/04/why-data-is-the-new-oil-what-we-mean-when-we-talk-about-deep-learning/).” This isn’t quite true: data is like the _crude oil_ of machine learning which means it has to be refined into _features _— predictor variables — to be useful for training a model. Without relevant features, you can’t train an accurate model, no matter how complex the machine learning algorithm. The process of extracting features from a raw dataset is called [_feature engineering_](https://en.wikipedia.org/wiki/Feature_engineering)_.
+
+<!--more-->
 
 #### The Feature Engineering Process
 
 Feature engineering, the second step in the [machine learning pipeline](https://towardsdatascience.com/how-to-create-value-with-machine-learning-eb09585b332e), takes in the [label times from the first step](https://towardsdatascience.com/prediction-engineering-how-to-set-up-your-machine-learning-problem-b3b8f622683b)— prediction engineering — and a raw dataset that needs to be refined. Feature engineering means building features for each label while _filtering the data used for the feature based on the label’s cutoff time_ to make valid features. These features and labels are then passed to modeling where they will be used for training a machine learning algorithm.
 
-![](https://cdn-images-1.medium.com/max/2000/0*W8UQXa0By4zNHChY)The process of feature engineering.
+![](https://cdn-images-1.medium.com/max/2000/0*W8UQXa0By4zNHChY)
+*The process of feature engineering.*
 
 While feature engineering requires label times, in [our general-purpose framework](https://towardsdatascience.com/how-to-create-value-with-machine-learning-eb09585b332e), it is _not hard-coded_ for specific labels corresponding to only one prediction problem. If we wrote our feature engineering code for a single problem — as feature engineering is traditionally approached — then we would have to redo this laborious step every time the parameters change.
 
@@ -43,7 +53,8 @@ Traditionally, [feature engineering is done by hand](https://www.kaggle.com/will
 
 [Automated feature engineering](https://towardsdatascience.com/automated-feature-engineering-in-python-99baf11cc219) overcomes these problems through a reusable approach to automatically building hundreds of relevant features from a relational dataset. Moreover, this method [filters the features for each label based on the cutoff time](https://docs.featuretools.com/automated_feature_engineering/handling_time.html), creating a rich set of valid features. In short, automated feature engineering enables data scientists to **build better predictive models in a fraction of the time.**
 
-![](https://cdn-images-1.medium.com/max/2000/1*s68vgToQvQaHpFE7p95xfQ.png)Manual vs Automated Feature Engineering Pipelines.
+![](https://cdn-images-1.medium.com/max/2000/1*s68vgToQvQaHpFE7p95xfQ.png)
+*Manual vs Automated Feature Engineering Pipelines.*
 
 #### Motivation for Automated Feature Engineering
 
@@ -51,7 +62,8 @@ After solving a few problems with machine learning, it becomes clear that [many 
 
 This is the idea behind automated feature engineering. We can apply the same basic building blocks — called [feature primitives](https://docs.featuretools.com/automated_feature_engineering/primitives.html) — to different relational datasets to build predictor variables. As a concrete example, the “max” feature primitive applied to customer transactions can also be applied to flight delays. In the former case, this will find the _largest transaction for each customer_, and in the latter, the _longest flight delay for a given flight number_.
 
-![](https://cdn-images-1.medium.com/max/2000/0*xNv_hc81-IeL3MyA)[Source: How Deep Feature Synthesis Works](https://www.featurelabs.com/blog/deep-feature-synthesis/)
+![](https://cdn-images-1.medium.com/max/2000/0*xNv_hc81-IeL3MyA)
+*[Source: How Deep Feature Synthesis Works](https://www.featurelabs.com/blog/deep-feature-synthesis/)*
 
 This is an embodiment of the [idea of abstraction](https://en.wikipedia.org/wiki/Abstraction_%28computer_science%29): remove the need to deal with the details — writing specific code for each dataset — by building higher level tools that take advantage of operations common to many problems.
 
@@ -76,15 +88,17 @@ For more on automated feature engineering in Featuretools see:
 
 Featuretools requires some background code to [link together the tables through relationships](https://docs.featuretools.com/loading_data/using_entitysets.html), but then we can automatically make features for customer churn using the following code (see [notebook for complete details](https://github.com/Featuretools/predicting-customer-churn/blob/master/churn/3.%20Feature%20Engineering.ipynb)):
 
-<iframe width="700" height="250" src="/media/833349a2808fc1755d12d3b529e9a397?postId=93ab191bcc2d" data-media-id="833349a2808fc1755d12d3b529e9a397" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/0197ac32c28fa045bb9c7de92c75cc46.js" allowfullscreen="" frameborder="0"></script>
 
 _This one line of code gives us over 200 features for each label_ in `cutoff_times`. Each feature is a combination of feature primitives and is built with _only data from before the associated cutoff time._
 
-![](https://cdn-images-1.medium.com/max/2000/1*xB0Y-0TrSCJcDq1YcrwSbA.png)Sample of features from Featuretools automated feature engineering.
+![](https://cdn-images-1.medium.com/max/2000/1*xB0Y-0TrSCJcDq1YcrwSbA.png)
+*Sample of features from Featuretools automated feature engineering.*
 
 The features built by Featuretools are explainable in _natural language_ because they are built up from basic operations. For example, we see the feature `AVG_TIME_BETWEEN(transactions.transaction_date)`. This represents the average time between transactions for each customer. When we plot this colored by the label we see that customers who churned appear to have a slightly longer average time between transactions.
 
-![](https://cdn-images-1.medium.com/max/1600/1*I0l4Pa2tyYTZHmNhoRm2TA.png)Distribution of time between transactions colored by the label.
+![](https://cdn-images-1.medium.com/max/1600/1*I0l4Pa2tyYTZHmNhoRm2TA.png)
+*Distribution of time between transactions colored by the label.*
 
 * * *
 
@@ -108,7 +122,8 @@ Just as the label times from prediction engineering flowed into feature engineer
 
 As a preview, pictured is the tuned precision-recall curve from machine learning. (Full notebook [available on GitHub.](https://github.com/Featuretools/predicting-customer-churn/blob/master/churn/5.%20Modeling.ipynb))
 
-![](https://cdn-images-1.medium.com/max/1600/1*7Fns1F6xvVlY8JyAlYamNw.png)Precision Recall Curve for Machine Learning
+![](https://cdn-images-1.medium.com/max/1600/1*7Fns1F6xvVlY8JyAlYamNw.png)
+*Precision Recall Curve for Machine Learning*
 
 * * *
 

@@ -1,8 +1,14 @@
+---
+published: true
+title: "Recurrent Neural Networks by Example in Python"
+date: 2018-11-04
+categories:
+  - deep learning
+  - project
+---
 * * *
 
 ![](https://cdn-images-1.medium.com/max/2000/1*oT5oL9eO5BF9qKcerVD2qg.jpeg)([Source](https://www.pexels.com/photo/agriculture-alternative-energy-clouds-countryside-414837/))
-
-# Recurrent Neural Networks by Example in Python
 
 ## Using a Recurrent Neural Network to Write Patent Abstracts
 
@@ -13,6 +19,8 @@ The first time I attempted to study recurrent neural networks, I made the mistak
 This was the author of the library Keras (Francois Chollet), an expert in deep learning, telling me I didn’t need to understand everything at the foundational level! I realized that my mistake had been starting at the bottom, with the theory, instead of just trying to build a recurrent neural network.
 
 > Shortly thereafter, I switched tactics and decided to try the most effective way of learning a data science technique: find a problem and solve it!
+
+<!--more-->
 
 This [top-down approach](https://course.fast.ai/about.html) means learning _how to_ **_implement_** _a method_ **_before_** _going back and covering the_ **_theory_**. This way, I’m able to figure out what I need to know along the way, and when I return to study the concepts, I have a framework into which I can fit each idea. In this mindset, I decided to stop worrying about the details and complete a recurrent neural network project.
 
@@ -28,7 +36,8 @@ It’s helpful to understand at least some of the basics before getting to the i
 
 _Recurrent_ means the output at the current time step becomes the input to the next time step. At each element of the sequence, the model considers not just the current input, but what it remembers about the preceding elements.
 
-![](https://cdn-images-1.medium.com/max/1600/1*KljWrINqItHR6ng05ASR8w.png)Overview of RNN ([Source](https://www.manning.com/books/deep-learning-with-python))
+![](https://cdn-images-1.medium.com/max/1600/1*KljWrINqItHR6ng05ASR8w.png)
+*Overview of RNN ([Source](https://www.manning.com/books/deep-learning-with-python))*
 
 This memory allows the network to learn _long-term dependencies_ in a sequence which means it can take the entire context into account when making a prediction, whether that be the next word in a sentence, a sentiment classification, or the next temperature measurement. A RNN is designed to mimic the human way of processing sequences: we consider the _entire sentence when forming a response instead of words by themselves._ For example, consider the following sentence:
 
@@ -40,7 +49,8 @@ A machine learning model that considers the words in isolation — such as a
 
 At the heart of an RNN is a layer made of memory cells. The most popular cell at the moment is the [Long Short-Term Memory](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM) which maintains a cell state as well as a carry for ensuring that the signal (information in the [form of a gradient](https://stats.stackexchange.com/questions/185639/how-does-lstm-prevent-the-vanishing-gradient-problem)) is not lost as the sequence is processed. At each time step the LSTM considers the current word, the carry, and the cell state.
 
-![](https://cdn-images-1.medium.com/max/2000/1*esTGDR3kcDLaTEHKCBedTQ.png)LSTM (Long Short Term Memory) Cell ([Source](https://www.manning.com/books/deep-learning-with-python))
+![](https://cdn-images-1.medium.com/max/2000/1*esTGDR3kcDLaTEHKCBedTQ.png)
+*LSTM (Long Short Term Memory) Cell ([Source](https://www.manning.com/books/deep-learning-with-python))*
 
 The LSTM has 3 different gates and weight vectors: there is a “forget” gate for discarding irrelevant information; an “input” gate for handling the current input, and an “output” gate for producing predictions at each time step. However, as Chollet points out, it is fruitless trying to assign specific meanings to each of the elements in the cell.
 
@@ -71,7 +81,8 @@ Keep in mind this is only one formulation of the problem: we could also use a ch
 
 Even with a neural network’s powerful representation ability, getting a quality, clean dataset is paramount. The raw data for this project comes from [USPTO PatentsView](http://www.patentsview.org/querydev/), where you can search for information on any patent applied for in the United States. I searched for the term “neural network” and downloaded the resulting patent abstracts — 3500 in all. I found it best to train on a narrow subject, but feel free to try with a different set of patents.
 
-![](https://cdn-images-1.medium.com/max/2000/1*pAEoYnnufAvTLuvo0TEZ3A.png)Patent Abstract Data
+![](https://cdn-images-1.medium.com/max/2000/1*pAEoYnnufAvTLuvo0TEZ3A.png)
+*Patent Abstract Data*
 
 We’ll start out with the patent abstracts as a list of strings. The main data preparation steps for our model are:
 
@@ -90,10 +101,12 @@ We can use the `idx_word` attribute of the trained tokenizer to figure out what 
 
 If you look closely, you’ll notice that the `Tokenizer` has removed all punctuation and lowercased all the words. If we use these settings, then the neural network will not learn proper English! We can adjust this by changing the filters to the `Tokenizer` to not remove punctuation.
 
-<pre name="87ad" id="87ad" class="graf graf--pre graf-after--p"># Don't remove punctuation or uppercase
-tokenizer = Tokenizer(num_words=None, 
+```
+# Don't remove punctuation or uppercase
+tokenizer = Tokenizer(num_words=None,
                      filters='#$%&()*+-<=>@[\\]^_`{|}~\t\n',
-                     lower = False, split = ' ')</pre>
+                     lower = False, split = ' ')
+```
 
 See the notebooks for different implementations, but, when we use pre-trained embeddings, we’ll have to remove the uppercase because there are no lowercase letters in the embeddings. When training our own embeddings, we don’t have to worry about this because the model will learn different representations for lower and upper case.
 
@@ -111,7 +124,7 @@ Creating the features and labels is relatively simple and for each abstract (rep
 
 The implementation of creating features and labels is below:
 
-<iframe width="700" height="250" src="/media/e063df0e7c6faff017d3ed7c3c27fcfa?postId=ffd204f99470" data-media-id="e063df0e7c6faff017d3ed7c3c27fcfa" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/de03f3c43bea34111ce1948c0c0bd9ba.js" allowfullscreen="" frameborder="0"></script>
 
 The features end up with shape `(296866, 50)` which means we have almost 300,000 sequences each with 50 tokens. In the language of recurrent neural networks, each sequence has 50 _timesteps_ each with 1 feature.
 
@@ -133,7 +146,7 @@ After getting all of our features and labels properly formatted, we want to spli
 
 The code for a simple LSTM is below with an explanation following:
 
-<iframe width="700" height="250" src="/media/39627c073f4f39baa89c836bd297b85e?postId=ffd204f99470" data-media-id="39627c073f4f39baa89c836bd297b85e" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/06443acaea86e333fbaf3757367cecc2.js" allowfullscreen="" frameborder="0"></script>
 
 We are using the Keras `Sequential` API which means we build the network up one layer at a time. The layers are as follows:
 
@@ -146,7 +159,8 @@ We are using the Keras `Sequential` API which means we build the network up one 
 
 The model is compiled with the `Adam` optimizer (a variant on Stochastic Gradient Descent) and trained using the `categorical_crossentropy` loss. During training, the network will try to minimize the log loss by adjusting the trainable parameters (weights). As always, the gradients of the parameters are calculated using [back-propagation](http://neuralnetworksanddeeplearning.com/chap2.html) and updated with the optimizer. Since we are using Keras, we [don’t have to worry about how this happens](https://machinelearningmastery.com/5-step-life-cycle-neural-network-models-keras/) behind the scenes, only about setting up the network correctly.
 
-![](https://cdn-images-1.medium.com/max/1600/1*MAy6t2V08M-M5ZKB_9oRsQ.png)LSTM network layout.
+![](https://cdn-images-1.medium.com/max/1600/1*MAy6t2V08M-M5ZKB_9oRsQ.png)
+*LSTM network layout.*
 
 Without updating the embeddings, there are many fewer parameters to train in the network. [The input to the](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/) `[LSTM](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/)` [layer is](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/) `[(None, 50, 100)](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/)` [which means](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/) that for each batch (the first dimension), each sequence has 50 timesteps (words), each of which has 100 features after embedding. Input to an LSTM layer always has the `(batch_size, timesteps, features)` shape.
 
@@ -160,7 +174,7 @@ Even though the pre-trained embeddings contain 400,000 words, there are some wor
 
 We can quickly load in the pre-trained embeddings from disk and make an embedding matrix with the following code:
 
-<iframe width="700" height="250" src="/media/b75358e4b6fd31810ae98c39a3b69577?postId=ffd204f99470" data-media-id="b75358e4b6fd31810ae98c39a3b69577" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/93f2643f9596916b72888796cf2710e9.js" allowfullscreen="" frameborder="0"></script>
 
 What this does is assign a 100-dimensional vector to each word in the vocab. If the word has no pre-trained embedding then this vector will be all zeros.
 
@@ -185,19 +199,21 @@ With the training and validation data prepared, the network built, and the embed
 
 Using [Early Stopping](https://stats.stackexchange.com/questions/231061/how-to-use-early-stopping-properly-for-training-deep-neural-network) means we won’t overfit to the training data and waste time training for extra epochs that don’t improve performance. The Model Checkpoint means we can access the best model and, if our training is disrupted 1000 epochs in, we won’t have lost all the progress!
 
-<iframe width="700" height="250" src="/media/efe99f19f006dc1e0f61a0a5e9100a0b?postId=ffd204f99470" data-media-id="efe99f19f006dc1e0f61a0a5e9100a0b" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/9a2e168c80828dae247373d0b1392787.js" allowfullscreen="" frameborder="0"></script>
 
 The model can then be trained with the following code:
 
-<iframe width="700" height="250" src="/media/58903b56cb967738c0831d08c25c73eb?postId=ffd204f99470" data-media-id="58903b56cb967738c0831d08c25c73eb" allowfullscreen="" frameborder="0"></iframe>
+<script width="700" height="250" src="https://gist.github.com/WillKoehrsen/e24ef6c94d5549e716a0b354e1d7cd9d.js" allowfullscreen="" frameborder="0"></script>
 
 On an [Amazon p2.xlarge instance](https://aws.amazon.com/ec2/instance-types/p2/) ($0.90 / hour reserved), this took just over 1 hour to finish. Once the training is done, we can load back in the best saved model and evaluate a final time on the validation data.
 
-<pre name="6f4d" id="6f4d" class="graf graf--pre graf-after--p">from keras import load_model</pre>
+```
+from keras import load_model
 
-<pre name="4767" id="4767" class="graf graf--pre graf-after--pre"># Load in model and evaluate on validation data
+# Load in model and evaluate on validation data
 model = load_model('../models/model.h5')
-model.evaluate(X_valid, y_valid)</pre>
+model.evaluate(X_valid, y_valid)
+```
 
 Overall, the model using pre-trained word embeddings achieved a validation accuracy of 23.9%. This is pretty good considering as a human I find it extremely difficult to predict the next word in these abstracts! A naive guess of the most common word (“the”) yields an accuracy around 8%. The metrics for all the models in the notebook are shown below:
 
@@ -224,6 +240,7 @@ The output isn’t too bad! Some of the time it’s tough to determine which is 
 Another use of the network is to seed it with our own starting sequence. We can use any text we want and see where the network takes it:
 
 ![](https://cdn-images-1.medium.com/max/2000/1*RzwRgUxCh9z2NuMltAoPFg.png)
+*Output from Recurrent Neural Network*
 
 Again, the results are not entirely believable but they do resemble English.
 
@@ -251,7 +268,8 @@ It’s important to recognize that the recurrent neural network has no concept o
 
 The uses of recurrent neural networks go far beyond text generation to [machine translation](https://machinelearningmastery.com/encoder-decoder-recurrent-neural-network-models-neural-machine-translation/), [image captioning](https://cs.stanford.edu/people/karpathy/sfmltalk.pdf), and [authorship identification](https://arxiv.org/ftp/arxiv/papers/1506/1506.04891.pdf). Although this application we covered here will not displace any humans, it’s conceivable that with more training data and a larger model, a neural network would be able to synthesize new, reasonable patent abstracts.
 
-![](https://cdn-images-1.medium.com/max/1600/1*r0SdCL5x2-ufHTWpfrx2EQ.png)A Bi-Directional LSTM Cell ([Source](https://developer.nvidia.com/discover/lstm))
+![](https://cdn-images-1.medium.com/max/1600/1*r0SdCL5x2-ufHTWpfrx2EQ.png)
+*A Bi-Directional LSTM Cell ([Source](https://developer.nvidia.com/discover/lstm))*
 
 It can be easy to get stuck in the details or the theory behind a complex technique, but a more effective method for learning data science tools is to [dive in and build applications](https://github.com/DOsinga/deep_learning_cookbook). You can always go back later and catch up on the theory once you know what a technique is capable of and how it works in practice. Most of us won’t be designing neural networks, but it’s worth learning how to use them effectively. This means putting away the books, breaking out the keyboard, and coding up your very own network.
 

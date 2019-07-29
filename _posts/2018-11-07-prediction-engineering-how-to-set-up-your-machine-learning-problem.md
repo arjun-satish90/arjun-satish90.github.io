@@ -1,8 +1,14 @@
+---
+published: true
+title: "Prediction Engineering: How to Set Up Your Machine Learning Problem"
+date: 2018-11-07
+categories:
+  - Feature Labs
+  - machine learning
+---
 * * *
 
 ![](https://cdn-images-1.medium.com/max/2000/1*P_UAY9ZJHZMF7S1sq_0t8w.png)
-
-# Prediction Engineering: How to Set Up Your Machine Learning Problem
 
 ## An explanation and implementation of the first step in solving problems with machine learning
 
@@ -13,6 +19,8 @@ This is the second in a four-part series on how we approach machine learning at 
 3.  Modeling: Teaching an Algorithm to Make Predictions (coming soon)
 
 These articles will cover the concepts and a full implementation as applied to predicting customer churn. The project [Jupyter Notebooks are all available on GitHub](https://github.com/Featuretools/predicting-customer-churn/tree/master/churn). (Full disclosure: I work for Feature Labs, a startup developing tooling, including [Featuretools](https://github.com/Featuretools/featuretools), for solving problems with machine learning. All of the work documented here was completed with open-source tools and data.)
+
+<!--more-->
 
 * * *
 
@@ -28,7 +36,8 @@ A better solution is to write functions that are flexible to changing business p
 
 Prediction engineering requires guidance both from the business viewpoint to figure out the right problem to solve as well as from the data scientist to determine how to translate the business need into a machine learning problem. The inputs to prediction engineering are the _parameters_ which define the prediction problem for the business requirement , and the _historical dataset_ for finding examples of what we want to predict.
 
-![](https://cdn-images-1.medium.com/max/2000/0*2o7xf1t3PJKuvwbu)Process of prediction engineering.
+![](https://cdn-images-1.medium.com/max/2000/0*2o7xf1t3PJKuvwbu)
+*Process of prediction engineering.*
 
 The output of prediction engineering is a _label times_ table: a set of labels with negative and positive examples made from past data along with an associated _cutoff time_ indicating when we have to stop using data to make features for that label (more on this shortly).
 
@@ -40,7 +49,8 @@ The parameters for what constitutes a churn and how often we want to make predic
 
 Our goal for prediction engineering is a label times table as follows:
 
-![](https://cdn-images-1.medium.com/max/1600/0*QbjuCcl5F5AD0a40)Example of label times table
+![](https://cdn-images-1.medium.com/max/1600/0*QbjuCcl5F5AD0a40)
+*Example of label times table*
 
 The labels correspond to whether a customer churned or not based on historical data. Each customer is used as a training example multiple times because they have multiple months of data. Even if we didn’t use customers many times, because this is a _time-dependent_ problem, we have to correctly implement the concept of _cutoff times._
 
@@ -58,7 +68,8 @@ Imagine we did not limit our features to data that occurred before the first of 
 
 Now that we have the concepts, let’s work go through the details. [KKBOX](https://www.kkbox.com/) is Asia’s leading music streaming service offering both a free and a pay-per-month subscription option to over 10 million members. KKBOX has made available a [dataset](https://www.kaggle.com/c/kkbox-music-recommendation-challenge/data) for predicting customer churn. There are 3 data tables coming in at just over 30 GB that are represented by the schema below:
 
-![](https://cdn-images-1.medium.com/max/1600/1*30DPomKK-OusQqrZ6d_d4g.png)Relational diagram of [data](https://www.kaggle.com/c/kkbox-music-recommendation-challenge/data).
+![](https://cdn-images-1.medium.com/max/1600/1*30DPomKK-OusQqrZ6d_d4g.png)
+*Relational diagram of [data](https://www.kaggle.com/c/kkbox-music-recommendation-challenge/data).*
 
 The three tables consist of:
 
@@ -95,7 +106,8 @@ For customer churn, the parameters are the
 
 The following diagram shows each of these concepts while filling in the details with the problem definition we’ll work through.
 
-![](https://cdn-images-1.medium.com/max/2000/1*_1L27dwJfDmIy9BcW3WjSg.png)Parameters defining the customer churn prediction problem.
+![](https://cdn-images-1.medium.com/max/2000/1*_1L27dwJfDmIy9BcW3WjSg.png)
+*Parameters defining the customer churn prediction problem.*
 
 In this case, the customer has churned during the month of January as they went without a subscription for more than 30 days. Because our lead time is one month and the prediction window is also one month, the label of churn is associated with the cutoff time of December 1\. For this problem, we are thus teaching our model to predict customer churn _one month in advance_ to give the customer satisfaction team sufficient time to engage with customers.
 
@@ -111,17 +123,28 @@ When we develop the functions for creating labels, we make our inputs parameters
 
 To make labels, we develop 2 functions (full code in [the notebook](https://github.com/Featuretools/predicting-customer-churn/blob/master/churn/2.%20Prediction%20Engineering.ipynb)):
 
-<pre name="8460" id="8460" class="graf graf--pre graf-after--p">label_customer(customer_transactions, prediction_date = "first of month", days_to_churn = 31, lead_time = "1 month", prediction_window = "1 month")
+```
+label_customer(customer_transactions,
+            prediction_date = "first of month",
+            days_to_churn = 31,
+            lead_time = "1 month",
+            prediction_window = "1 month")
+```
 
-</pre>
-
-<pre name="03f3" id="03f3" class="graf graf--pre graf-after--pre">make_labels(all_transactions, prediction_date = "first of month", days_to_churn = 31, lead_time = "1 month", prediction_window = "1 month")</pre>
+```
+make_labels(all_transactions,
+        prediction_date = "first of month",
+        days_to_churn = 31,
+        lead_time = "1 month",
+        prediction_window = "1 month")
+```
 
 The `label_customer` function takes in a customer’s transactions and the specified parameters and returns a label times table. This table has a set of prediction times — the cutoff times — and the label during the prediction window for each cutoff time corresponding to a single customer.
 
 As an example, our labels for a customer look like the following:
 
-![](https://cdn-images-1.medium.com/max/1600/0*pc8fb1ucXB3fHeUx)Label times for one customer.
+![](https://cdn-images-1.medium.com/max/1600/0*pc8fb1ucXB3fHeUx)
+*Label times for one customer.*
 
 The `make_labels` function then takes in the transactions for all customers along with the parameters and returns a table with the cutoff times and the label for every customer.
 

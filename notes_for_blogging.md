@@ -47,10 +47,10 @@ UMAP | PCA
 ## Replacing Code Tags
 
 ### Starting
-Find: <pre(.?)>
+Find: <pre(.*?)>
 Replace: ```\n
 
 #### Ending
 
-Find: </pre(.?)>
+Find: </pre(.*?)>
 Replace: \n```

@@ -55,9 +55,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-weight: 400;
   font-size: 36px;
+  margin-top: 0px;
   a {
     color: #021121;
-  }  
+  }
 }
 
 h2 {
@@ -149,25 +150,25 @@ img + em {
 	height: 30px;
 	width: 95%;
 }
- 
+
 .post-categories {
 	font-size: 16px;
 	float: right;
     font-style: italic;
  }
- 
+
 .category-head {
  	text-transform: capitalize;
 }
- 
- 
+
+
  // Container for holding live code
  iframe {
 	height: 100%;
     width: 100%;
     frameborder: 5px;
  }
- 
+
  .code-container {
     margin-top: 50px;
     margin-bottom: 50px;
