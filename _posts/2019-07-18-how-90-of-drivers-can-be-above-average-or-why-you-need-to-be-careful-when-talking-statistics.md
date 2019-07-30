@@ -1,6 +1,6 @@
 ---
 published: true
-title: "How 90 Of Drivers Can Be Above Average Or Why You Need To Be Careful When Talking Statistics"
+title: "How 90% Of Drivers Can Be Above Average Or Why You Need To Be Careful When Talking Statistics"
 date: 2019-07-18
 categories:
   - data science
