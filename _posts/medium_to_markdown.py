@@ -61,7 +61,7 @@ if __name__ == "__main__":
         )
 
         # Remove personal blurb
-        new_content = re.sub("\[(.*?)read", "", new_content)
+        new_content = re.sub("\[(.*?)min", "", new_content)
 
         # Replace <pre> around code blocks
         new_content = re.sub("<pre(.*?)>", "```\\n", new_content)
