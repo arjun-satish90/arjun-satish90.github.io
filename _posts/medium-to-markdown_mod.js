@@ -1,5 +1,5 @@
 const mediumToMarkdown = require('medium-to-markdown');
  
-mediumToMarkdown.convertFromUrl("https://medium.com/@williamkoehrsen/top-books-of-2017-c338630b99ad").then(function (markdown) {
+mediumToMarkdown.convertFromUrl("https://towardsdatascience.com/improving-random-forest-in-python-part-1-893916666cd").then(function (markdown) {
   console.log(markdown); //=> Markdown content of medium post
 });
