@@ -1,6 +1,6 @@
 ---
 published: true
-title: "please-steal-my-articles"
+title: "Please Steal My Articles"
 date: 2018-12-09
 categories:
   - thoughts
@@ -16,6 +16,8 @@ When Time Warner’s CEO heard Game of Thrones was the [most pirated TV show](ht
 While this may seem counterintuitive, the thinking went the more people who found the show through any means, the more talk about it there would be, leading to a greater number of paying customers. Rather than spending fortunes trying to stop the inevitable, HBO accepted the piracy as a positive. While there are certainly other factors at play, this decision seems to be wise in light of the [record viewership Game of Thrones would attain](https://www.nytimes.com/2017/08/28/arts/television/game-of-thrones-finale-sets-ratings-record.html).
 
 When I found out my articles s my articles and learns something, _regardless of whether they know I wrote the article_, the world is a better place.
+
+<!--more-->
 
 Maybe this view strikes you as naive and you think I sound idealistic. My response is we could use more idealistic people who do things _not for personal gain, but to make enrich the lives of their fellow humans._ Sure, I could complain about my work being stolen ( it far and wide with or without my name attached!
 

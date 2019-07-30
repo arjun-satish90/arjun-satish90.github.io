@@ -92,7 +92,7 @@ if __name__ == "__main__":
         new_content = (
             f"""---
 published: true
-title: "{title}"
+title: "{title.replace('-', ' ').title()}"
 date: {date}
 categories:
   -
