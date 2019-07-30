@@ -7,14 +7,14 @@ categories:
   - statistics
 ---
 
-![](https://miro.medium.com/max/2000/1*WXd6UTHKPpjm_nkMUXuqlQ.jpeg?q=20)
+[](https://miro.medium.com/max/2000/1*WXd6UTHKPpjm_nkMUXuqlQ.jpeg?q=20)
 *([Source](https://www.adventure-journal.com/2016/03/where-bears-have-the-right-of-way/))*
 
 ## A simple application of Probabilistic Programming with PyMC3 in Python
 
 It started, as the best projects always do, with a few tweets:
 
-![]("https://twitter.com/AllenDowney/status/1063460117029535746?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed&ref_url=https%3A%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Ftype%3Dtext%252Fhtml%26key%3Da19fcc184b9711e1b4764040d3dc5c07%26schema%3Dtwitter%26url%3Dhttps%253A%2F%2Ftwitter.com%2Fallendowney%2Fstatus%2F1063460117029535746%26image%3Dhttps%253A%2F%2Fi.embed.ly%2F1%2Fimage%253Furl%253Dhttps%25253A%25252F%25252Fpbs.twimg.com%25252Fprofile_images%25252F3495257872%25252F7bc6afd0d22b9631f55aa7afc17fe4d8_400x400.jpeg%2526key%253Da19fcc184b9711e1b4764040d3dc5c07")
+[Allen Downey Tweets]("https://twitter.com/AllenDowney/status/1063460117029535746?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed&ref_url=https%3A%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Ftype%3Dtext%252Fhtml%26key%3Da19fcc184b9711e1b4764040d3dc5c07%26schema%3Dtwitter%26url%3Dhttps%253A%2F%2Ftwitter.com%2Fallendowney%2Fstatus%2F1063460117029535746%26image%3Dhttps%253A%2F%2Fi.embed.ly%2F1%2Fimage%253Furl%253Dhttps%25253A%25252F%25252Fpbs.twimg.com%25252Fprofile_images%25252F3495257872%25252F7bc6afd0d22b9631f55aa7afc17fe4d8_400x400.jpeg%2526key%253Da19fcc184b9711e1b4764040d3dc5c07")
 *Twitter is a [great resource for data science](https://www.becomingadatascientist.com/2015/10/04/how-to-use-twitter-to-learn-data-science-or-anything/)!*
 
 This may seem like a simple problem — the prevalences are simply the same as the observed data (50% lions, 33% tigers and 17% bears) right? If you believe observations we make are a perfect representation of the underlying truth, then yes, this problem could not be easier. However, [as a Bayesian](https://rationalwiki.org/wiki/Bayesian), this view of the world and the subsequent reasoning is deeply unsatisfying.
@@ -22,6 +22,8 @@ This may seem like a simple problem — the prevalences are simply the same as t
 First, how can we be sure this single trip to the preserve was indicative of all trips? What if we went during the winter when the bears were hibernating? We need to include _uncertainty_ in our estimate considering the limited data. Second, how can we incorporate _prior_ beliefs about the situation into this estimate? If we have heard from a friend the preserve has an equal number of each animal, then surely this should play some role in our estimate.
 
 > Fortunately, there is a solution that allows to express uncertainty _and_ incorporate prior information into our estimate: Bayesian Inference.
+
+<!--more-->
 
 In this article, we’ll explore the problem of estimating probabilities from data in a Bayesian framework, along the way learning about probability distributions, [Bayesian Inference](https://en.wikipedia.org/wiki/Bayesian_inference), and [basic probabilistic programming](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers) with [PyMC3](https://docs.pymc.io/api.html). The complete code is available as a [Jupyter Notebook on GitHub](https://github.com/WillKoehrsen/probabilistic-programming/blob/master/Estimating%20Probabilities%20with%20Bayesian%20Inference.ipynb).
 
