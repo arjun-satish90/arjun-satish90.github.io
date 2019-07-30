@@ -1,6 +1,6 @@
 ---
 published: true
-title: "Data Science A Practical Application"
+title: "Data Science: A Practical Application"
 date: 2018-01-07
 categories:
   - data science
