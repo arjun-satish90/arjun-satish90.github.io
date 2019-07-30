@@ -67,7 +67,7 @@ You can also use the extension to add a linked table of contents at the top of t
 
 We should all write [pep8 compliant code](https://www.python.org/dev/peps/pep-0008/), but sometimes you get caught up in an analysis and it’s hard to stick to best practices. When you’re done writing that amazing plot, this extension allows you to simply click the gavel and automatically format your messy code.
 
-![](https://miro.medium.com/freeze/max/2000/1*elTgjATiDoy-n7QqwsxlaA.gif?q=20)
+![](https://miro.medium.com/max/2000/1*elTgjATiDoy-n7QqwsxlaA.gif?q=20)
 *Autopep8 your code.*
 
 Like the best add-ons, this one accomplishes a time-consuming and tedious task with a simple click, enabling you to focus on thinking through problems.
@@ -94,7 +94,7 @@ There are better thedocs.io/en/stable/interactive/magics.html#magic-timeit) `the
 
 Although some of us like to see the hard work that goes into an analysis, some people just like to see the results. The Hide input all extension allows you to instantly hide all the code in the notebook while keeping outputs.
 
-![](https://miro.medium.com/freeze/max/2000/1*p3Z13Od2954EmZ996c9B-A.gif?q=20)
+![](https://miro.medium.com/max/2000/1*p3Z13Od2954EmZ996c9B-A.gif?q=20)
 *Hide all code*
 
 The next time someone says they just want to see the results, you have a single click solution. (Although you should always examine the code).

@@ -71,6 +71,8 @@ if __name__ == "__main__":
         new_content = re.sub("<span(.*?)>", "", new_content)
         new_content = re.sub("<\/span(.*?)>", "", new_content)
 
+        new_content = re.sub("freeze/", "", new_content)
+
         # Identify all iframes (GitHub gists)
         iframes = re.findall("<iframe(.*?)><\/iframe>", new_content)
 
@@ -87,6 +89,18 @@ if __name__ == "__main__":
                 # Substitute the old iframe with the new replacement
                 new_content = re.sub(old_iframe, replacement, new_content)
 
+        new_content = (
+            f"""---
+published: true
+title: "{title}"
+date: {date}
+categories:
+  -
+  -
+---
+"""
+            + new_content
+        )
         # Save the modified post
         with open(post_file_name, "w") as fout:
             fout.write(new_content)
