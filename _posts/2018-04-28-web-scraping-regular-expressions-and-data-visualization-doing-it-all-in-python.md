@@ -1,6 +1,6 @@
 ---
 published: true
-title: "Web Scraping Regular Expressions And Data Visualization Doing It All In Python"
+title: "Web Scraping, Regular Expressions, And Data Visualization Doing It All In Python"
 date: 2018-04-28
 categories:
   - python
