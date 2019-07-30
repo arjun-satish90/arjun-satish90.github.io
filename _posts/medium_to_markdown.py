@@ -1,6 +1,20 @@
 import copy
 import subprocess
 import re
+import requests
+
+
+def fetch_gist(url):
+    """
+    Get the gist url from a media content url
+    """
+    # Get the content from the url
+    content = requests.get(url).content.decode()
+    # Find the gist url
+    match = re.findall("<script src(.*?)><\/script>", content)[0]
+    gist_url = re.findall('"(.*?)"', match)[0]
+    return f'<script src="{gist_url}"></script>'
+
 
 if __name__ == "__main__":
     post_url = input("Enter post url: ")
@@ -38,10 +52,16 @@ if __name__ == "__main__":
         # Replace noscript image duplication
         new_content = re.sub("\\n\\n<noscript>(.*?)<\/noscript>\\n\\n", "\n", content)
 
+        # Upgrade image quality
+        new_content = re.sub("/max/[0-9]{1,3}", "/max/2000", new_content)
+
         # Replace source location
         new_content = re.sub(
             "\?source=post_page---------------------------", "", new_content
         )
+
+        # Remove personal blurb
+        new_content = re.sub("\[(.*?)read", "", new_content)
 
         # Replace <pre> around code blocks
         new_content = re.sub("<pre(.*?)>", "```\\n", new_content)
@@ -51,8 +71,21 @@ if __name__ == "__main__":
         new_content = re.sub("<span(.*?)>", "", new_content)
         new_content = re.sub("<\/span(.*?)>", "", new_content)
 
-        # Replace iframe with script for github gists
-        new_content = re.sub("iframe", "script", new_content)
+        # Identify all iframes (GitHub gists)
+        iframes = re.findall("<iframe(.*?)><\/iframe>", new_content)
+
+        # Process each iframe
+        for iframe in iframes:
+            # Find the url in the frame
+            url = re.findall('src="(.*?)"', iframe)[0]
+            # Only use those urls with towardsdatascience
+            if "towardsdatascience" in url:
+                # Create a replacement script
+                replacement = fetch_gist(url)
+                old_iframe = f"<iframe{iframe}></iframe>"
+
+                # Substitute the old iframe with the new replacement
+                new_content = re.sub(old_iframe, replacement, new_content)
 
         # Save the modified post
         with open(post_file_name, "w") as fout:
@@ -62,3 +95,4 @@ if __name__ == "__main__":
     # Report errors otherwise
     except Exception as e:
         print(f"Error somewhere along the way: {e}")
+
