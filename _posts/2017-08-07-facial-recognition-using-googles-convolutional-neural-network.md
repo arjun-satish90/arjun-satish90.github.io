@@ -5,6 +5,7 @@ date: 2017-08-07
 categories:
   - neural network
   - data science
+  - project
 ---
 
 ![](https://miro.medium.com/max/20000/1*9Xzx2kmsW3zHPEGW8XrkZA.png)

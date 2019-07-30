@@ -5,6 +5,7 @@ date: 2017-07-25
 categories:
   - neural network
   - classification
+  - project
 ---
 ![](https://miro.medium.com/max/2000/1*bLcTD-AxVnQfoO8qlZ-4sQ.jpeg?q=20)
 

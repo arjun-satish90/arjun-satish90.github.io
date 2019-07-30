@@ -5,6 +5,7 @@ date: 2017-08-04
 categories:
   - data science
   - R language
+  - project
 ---
 ![](https://miro.medium.com/max/2000/1*tOpTAcIfeL4Xx7LimsBkKA.png?q=20)
 
