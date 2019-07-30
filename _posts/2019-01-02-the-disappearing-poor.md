@@ -9,8 +9,6 @@ categories:
 ![](https://miro.medium.com/max/2000/1*XBTSgLdf0PfM-smeYd4dvA.jpeg?q=20)
 *[(Source)](https://www.pexels.com/photo/beach-dawn-dusk-ocean-189349/?)*
 
-# The Disappearing Poor
-
 ## Exploring the incredible worldwide gains in prosperity: Reality Project Episode 1
 
 Every day for 25 years, newspapers could have correctly run the headline “130,000 People Escape Extreme Poverty Yesterday” [(source)](https://ourworldindata.org/extreme-poverty?). Instead, as far as I can tell, this has appeared on the front page of a major newspaper precisely 0 times. Maybe this explains the incredibly terrible results recorded by people on this simple question (from [Gapminder](http://forms.gapminder.org/s3/test-2018?)):
