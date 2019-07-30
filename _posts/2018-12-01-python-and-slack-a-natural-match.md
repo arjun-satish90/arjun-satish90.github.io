@@ -3,7 +3,7 @@ published: true
 title: "Python and Slack: A Natural Match"
 date: 2018-12-01
 categories:
-  - Python
+  - python
   - programming
 ---
 

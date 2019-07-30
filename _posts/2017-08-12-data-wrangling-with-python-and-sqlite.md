@@ -4,7 +4,7 @@ title: "Data Wrangling With Python And Sqlite"
 date: 2017-08-12
 categories:
   - data science
-  - Python
+  - python
   - project
 ---
 ![](https://miro.medium.com/max/2000/1*4LYweo7ClaqFSPkCwDxyQA.png?q=20)

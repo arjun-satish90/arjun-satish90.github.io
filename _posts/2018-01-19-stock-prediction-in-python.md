@@ -4,7 +4,7 @@ title: "Stock Prediction In Python"
 date: 2018-01-19
 categories:
   - data science
-  - Python
+  - python
   - project
 ---
 ![](https://miro.medium.com/max/2000/1*dSbEKnRVhfCJMgLfQDtrCw.jpeg?q=20)

@@ -3,7 +3,7 @@ published: true
 title: "Introduction To Interactive Time Series Visualizations With Plotly In Python"
 date: 2018-12-15
 categories:
-  - Python
+  - python
   - data visualization
 ---
 

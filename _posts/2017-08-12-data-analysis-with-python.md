@@ -4,7 +4,7 @@ title: "Data Analysis With Python"
 date: 2017-08-12
 categories:
   - data science
-  - Python
+  - python
   - project
 ---
 

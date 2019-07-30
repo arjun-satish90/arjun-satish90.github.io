@@ -4,7 +4,7 @@ title: "Stock Analysis In Python"
 date: 2018-01-17
 categories:
   - data science
-  - Python
+  - python
   - project
 ---
 

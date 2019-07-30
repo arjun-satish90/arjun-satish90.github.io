@@ -3,7 +3,7 @@ published: true
 title: Another Machine Learning Walkthrough and a Challenge
 categories:
   - machine learning
-  - Python
+  - python
   - project
 ---
 ## Don’t just read about machine learning — practice it!
@@ -280,7 +280,7 @@ fare by $0.02 according to the model.
     # Linear Regression learned parameters
 
     Intercept 5.0819
-    abs_lat_diff coef:  113.6661 	
+    abs_lat_diff coef:  113.6661
     abs_lon_diff coef: 163.8758
     passenger_count coef: 0.0204
 
@@ -370,10 +370,10 @@ amount of time because the hyperparameters are evaluated using 3-fold cross
 validation. This means on each iteration, the model is trained with a selected
 combination of hyperparameters 3 times!
 
-    The best parameters were 
+    The best parameters were
 
-    {'n_estimators': 41, 'min_samples_split': 2, 
-    'max_leaf_nodes': 49, 'max_features': 0.5, 
+    {'n_estimators': 41, 'min_samples_split': 2,
+    'max_leaf_nodes': 49, 'max_features': 0.5,
     'max_depth': 22, 'bootstrap': True}
 
     with a negative mae of -2.0216
