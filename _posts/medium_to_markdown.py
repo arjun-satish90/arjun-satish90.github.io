@@ -23,8 +23,11 @@ if __name__ == "__main__":
     # File is automatically correctly named
     post_dir = f'{date}-{title}.md'
 
-    # Run the new script
-    r = os.system("node medium-to-markdown_mod.js >> %s" % post_dir)
+    # Run the new
+
+    proc = subprocess.Popen(["node", "medium-to-markdown_mod.js"], stdout=subprocess.PIPE, shell=True).communicate()
+
+    content = proc[0]
 
     # If no errors, report save location
     if r == 0:
