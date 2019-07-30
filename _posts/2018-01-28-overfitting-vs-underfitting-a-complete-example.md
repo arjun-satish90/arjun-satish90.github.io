@@ -1,6 +1,6 @@
 ---
 published: true
-title: "Overfitting Vs Underfitting A Complete Example"
+title: "Overfitting Vs Underfitting: A Complete Example"
 date: 2018-01-28
 categories:
   - machine learning

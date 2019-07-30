@@ -1,6 +1,6 @@
 ---
 published: true
-title: "Overfitting Vs Underfitting A Conceptual Explanation"
+title: "Overfitting Vs Underfitting: A Conceptual Explanation"
 date: 2018-01-27
 categories:
   - machine learning
