@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
         # Replace source location
         new_content = re.sub(
-            "\?source=post_page---------------------------", "", new_content
+            "source=post_page---------------------------", "", new_content
         )
 
         # Remove personal blurb
