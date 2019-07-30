@@ -68,8 +68,8 @@ if __name__ == "__main__":
         new_content = re.sub("<\/pre(.*?)>", "\\n```", new_content)
 
         # Replace <span> within code blocks
-        # new_content = re.sub("<span(.*?)>", "", new_content)
-        # new_content = re.sub("<\/span(.*?)>", "", new_content)
+        new_content = re.sub("<span(.*?)>", "\\n", new_content)
+        new_content = re.sub("<\/span(.*?)>", "\\n", new_content)
 
         new_content = re.sub("freeze/", "", new_content)
 
