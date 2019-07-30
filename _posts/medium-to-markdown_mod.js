@@ -1,5 +1,5 @@
 const mediumToMarkdown = require('medium-to-markdown');
  
-mediumToMarkdown.convertFromUrl("https://towardsdatascience.com/notes-on-software-construction-from-code-complete-8d2a8a959c69").then(function (markdown) {
+mediumToMarkdown.convertFromUrl("https://towardsdatascience.com/data-scientists-your-variable-names-are-awful-heres-how-to-fix-them-89053d2855be").then(function (markdown) {
   console.log(markdown); //=> Markdown content of medium post
 });

@@ -36,6 +36,8 @@ With a relative lack of software engineering skills entering my job, I’ve had 
 5.  **Be an egoless programmer**
 6.  **Iterate on your designs and repeatedly measure progress**
 
+<!--more-->
+
 Although the second edition of this book was written in 2004, the proven ideas in software engineering haven’t changed in the intervening years and the book is still highly relevant to software engineers today. You won’t learn any specific details about data science in Python from this book, but you will learn the fundamentals of how to plan, structure, build, test, and review software projects. I’ve tried to keep the ideas here at a fairly high-level and plan to go more into depth on specific points in later articles.
 
 ![](https://miro.medium.com/max/2000/0*Swn3tGNDzgB3pkRn.jpg?q=20)
