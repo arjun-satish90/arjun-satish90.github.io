@@ -23,6 +23,8 @@ OpenStreetMap (OSM) is an open-source project attempting to created a [free map 
 
 I decided to work with the metro area of Cleveland because it is where I currently attend university (at Case Western Reserve University), and I thought it would be intriguing to explore the city through the dataset after many hours spent experiencing the city on the ground. The data extract of Cleveland used for this project was downloaded from [Mapzen Metro Extracts](https://mapzen.com/data/metro-extracts/metro/cleveland_ohio/?).
 
+<!--more-->
+
 # **Data Retrieval / Preliminary Exploration**
 
 The first step was to download the map as an XML file. The original file clocked in at nearly 5.5 million lines, which was somewhat unwieldy for testing the first versions of auditing and cleaning scripts. Consequently, I decided to create smaller sample XML files for the first runs of the auditing scripts and for identifying the most common problems that would need to be cleaned. Using a provisional sampling script, I created a small file that contained one out of every 100 top-level element, and an intermediate size script that kept one out of 10 top-level elements. There are three core, top-level elements in OSM:

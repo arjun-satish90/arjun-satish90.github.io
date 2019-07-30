@@ -18,6 +18,8 @@ Using Google Chrome’s developer tools, you can easily set your location to any
 ![](https://miro.medium.com/max/2000/1*jZCp8I8QRk9r9frS1WUo3Q.png?q=20)
 *Display the Sensors Tab*
 
+<!--more-->
+
 This will display the sensors tab in the bottom half of the developer tools panel. The first category under sensors is geolocation which will be set to “No override.” Expand the options and choose either a custom latitude and longitude set of coordinates or a preset location to change the physical location reported by your browser.
 
 ![](https://miro.medium.com/max/2000/1*_QsxtXrNscD9kULoEZYbQA.png?q=20)
