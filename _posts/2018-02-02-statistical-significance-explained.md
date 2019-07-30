@@ -1,6 +1,6 @@
 ---
 published: true
-title: "Statistical Significance Hypothesis Testing The Normal Curve And P Values"
+title: "Statistical Significance Explained"
 date: 2018-02-02
 categories:
   - statistics
