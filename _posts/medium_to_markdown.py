@@ -89,6 +89,13 @@ if __name__ == "__main__":
                 # Substitute the old iframe with the new replacement
                 new_content = re.sub(old_iframe, replacement, new_content)
 
+        captions = captions = re.findall("!\[\]\((.*?)\)\\n(.*?)\\n\\n", new_content)
+
+        for caption in captions:
+            original = f"![]({caption[0]})\n{caption[1]}\n\n"
+            replacement = f"![]({caption[0]})\n*{caption[1]}*\n\n"
+            new_content = new_content.replace(original, replacement)
+
         new_content = (
             f"""---
 published: true
