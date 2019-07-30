@@ -1,6 +1,6 @@
 ---
 published: true
-title: "Beyond Accuracy Precision And Recall"
+title: "Beyond Accuracy: Precision And Recall"
 date: 2018-03-11
 categories:
   - statistics
