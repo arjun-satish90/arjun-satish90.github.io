@@ -1,6 +1,6 @@
 ---
 published: true
-title: "Most People Screw Up Multiple Percent Changes Heres How To Do Get Them Right"
+title: "Most People Screw Up Multiple Percent Changes. Here's How To Do Get Them Right."
 date: 2019-08-04
 categories:
   - statistics
@@ -27,6 +27,8 @@ C. Decrease of 4%
 D. None of the above.
 
 The answer, of course, is C, an _overall decrease of 4%_. Not only did the majority of college students get this question wrong, they did not even get the correct _direction_, with over half guessing this was _an increase._ The common error is taking the percentages at _face value_ and adding them together to get the overall percentage change. We thus have another entry in the [long list of things people](https://youarenotsosmart.com/) aren’t very good at, _combining multiple percentage changes_.
+
+<!--more-->
 
 Far from being an abstract, theoretical idea, finding a total change from a sequence of percentage moves has implications in our daily lives from the price of consumer goods to national budgets to our retirement account value, to the battery life on our newest laptop. Yet, despite the ubiquity of the error and the ramifications for us personally and as a nation, we are incapable of teaching people how to correctly stack percentages. In this article, we’ll discuss what the error is, how to avoid it, why this matter, and why people make it. Our primary resource is the paper: “When Two Plus Two Is Not Equal to Four: Errors in Processing Multiple Percentage Changes” ([link](https://academic.oup.com/jcr/article-abstract/34/3/327/1798868?redirectedFrom=PDF)).
 
