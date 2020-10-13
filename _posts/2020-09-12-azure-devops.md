@@ -4,6 +4,8 @@ title:  "Continuous Integration With Azure DevOps — Part 1"
 author: sal
 categories: [ Devops ]
 image: assets/images/devops1.jpeg
+featured: true
+rating: 4.5
 ---
 
 
