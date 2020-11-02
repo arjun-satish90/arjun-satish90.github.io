@@ -17,9 +17,7 @@ comments: true
 <div class="col-md-4">
 
 <div class="sticky-top sticky-top-80">
-<h5>Buy me a coffee</h5>
 
-<p>Thank you for your support! <i class="fab fa-github"></i></a>.</p>
 
 <a target="_blank" href="https://www.paypal.com/paypalme/laymancodes" class="btn btn-danger">Buy me a coffee</a> 
 
