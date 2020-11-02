@@ -8,7 +8,7 @@ comments: true
 <div class="row justify-content-between">
 <div class="col-md-8 pr-5">
 
-<p>A software engineer and an Team lead with more than 7 years of experience with focus on mobile technologies</p>
+<p>A Team lead @EY with more than 7.5 years of experience with focus on mobile technologies. Zen coder is my personal space where I write about things that I work on or are interested in.</p>
 
 <p class="mb-5"><img class="shadow-lg" src="{{site.baseurl}}/assets/images/resume.png" alt="jekyll template mediumish" /></p>
 
@@ -21,7 +21,8 @@ comments: true
 
 <p>Thank you for your support! Your donation helps me to maintain and improve <a target="_blank" href="https://github.com/wowthemesnet/mediumish-theme-jekyll">Mediumish <i class="fab fa-github"></i></a>.</p>
 
-<a target="_blank" href="https://www.wowthemes.net/donate/" class="btn btn-danger">Buy me a coffee</a> <a target="_blank" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/" class="btn btn-warning">Documentation</a>
+<a target="_blank" href="https://www.paypal.com/paypalme/laymancodes" class="btn btn-danger">Buy me a coffee</a> 
+
 
 </div>
 </div>

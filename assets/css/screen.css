@@ -59,6 +59,10 @@ section {
     margin-bottom: 20px;
 }
 
+.footerLogo{
+    max-width: 30%;
+}
+
 section.recent-posts {
     margin-bottom: 0;
 }
